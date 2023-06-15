@@ -1,0 +1,41 @@
+.slider-container {
+  height: 500px;
+  width: 100vw;
+
+  display: grid;
+  place-content: center;
+}
+
+.slider-wrapper {
+  height: 400px;
+  width: 80vw;
+  margin: 2rem;
+  padding: 20px;
+
+  position: relative;
+}
+
+.food-carousel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+}
+
+.food-card {
+  width: 300px;
+  height: 800px;
+}
+.food-img {
+  height: 250px;
+  width: 100%;
+}
+.food-img img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.food-name {
+  height: calc(300px - 250px);
+  width: 100%;
+}

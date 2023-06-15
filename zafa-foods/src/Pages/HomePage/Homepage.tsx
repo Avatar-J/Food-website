@@ -1,7 +1,12 @@
+import Herosection from "../../Components/HeroSection/Herosection";
+import Populardishes from "../../Components/PopularDishes/Populardishes";
+
 function Homepage() {
   return (
     <div>
-      <h1>Hellooooooooooooooooo from jummai's side</h1>
+      <Herosection />
+      <Populardishes />
+      <div className="overlay"></div>
     </div>
   );
 }
