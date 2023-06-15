@@ -9,6 +9,7 @@
   right: 0; */
   z-index: 10;
   padding: 0.5rem;
+  background-color: black;
 }
 
 .Logo {
@@ -50,7 +51,7 @@
   cursor: pointer;
   text-transform: uppercase;
   padding: 40px;
-  color: black;
+  color: white;
   font-weight: 400px;
 }
 .nav-menu:hover {

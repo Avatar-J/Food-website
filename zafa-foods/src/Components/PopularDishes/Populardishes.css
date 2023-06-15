@@ -5,37 +5,61 @@
   display: grid;
   place-content: center;
 }
-
+.slider-container h2 {
+  font-weight: 500px;
+  font-size: 32px;
+}
 .slider-wrapper {
   height: 400px;
-  width: 80vw;
-  margin: 2rem;
-  padding: 20px;
-
+  width: 1200px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .food-carousel {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
+  overflow: hidden; */
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(100% / 3);
+  /* flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden; */
+  gap: 1rem;
   overflow: hidden;
 }
 
-.food-card {
-  width: 300px;
-  height: 800px;
-}
 .food-img {
-  height: 250px;
-  width: 100%;
+  width: 320px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: black;
+  border: 8px solid rgba(255, 255, 255, 0.12);
 }
 .food-img img {
   height: 100%;
   width: 100%;
-  display: block;
   object-fit: cover;
+  border-radius: 50%;
 }
-.food-name {
-  height: calc(300px - 250px);
-  width: 100%;
+
+.slider-arrow {
+  font-size: 2rem;
+  color: green;
+  z-index: 1;
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23); */
+}
+
+@media screen and (max-width: 900px) {
+  .food-carousel {
+    grid-auto-columns: calc(100% / 2);
+  }
+}
+@media screen and (max-width: 600px) {
+  .food-carousel {
+    grid-auto-columns: 100%;
+  }
 }
