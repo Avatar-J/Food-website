@@ -1,16 +1,19 @@
 .slider-container {
-  height: 500px;
+  height: 400px;
   width: 100vw;
-
+  margin: 30px 0 30px 0;
   display: grid;
   place-content: center;
 }
 .slider-container h2 {
   font-weight: 500px;
   font-size: 32px;
+  text-align: center;
+  padding: 10px;
+  background-color: brown;
 }
 .slider-wrapper {
-  height: 400px;
+  height: 350px;
   width: 1200px;
   position: relative;
   display: flex;
@@ -30,6 +33,12 @@
   overflow: hidden; */
   gap: 1rem;
   overflow: hidden;
+}
+
+.dragging {
+  user-select: none;
+  scroll-behavior: smooth;
+  cursor: grab;
 }
 
 .food-img {

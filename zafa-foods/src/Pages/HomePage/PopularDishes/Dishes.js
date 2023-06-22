@@ -1,8 +1,8 @@
-import Tuozaafi from "../../Images/ampesi.jpeg";
-import Jollof from "../../Images/Jollof.jpg";
-import fufu from "../../Images/Fufu.jpg";
-import waakye from "../../Images/waakye.jpeg";
-import friedrice from "../../Images/Fried-Rice.jpg";
+import Tuozaafi from "../../../Images/ampesi.jpeg";
+import Jollof from "../../../Images/Jollof.jpg";
+import fufu from "../../../Images/Fufu.jpg";
+import waakye from "../../../Images/waakye.jpeg";
+import friedrice from "../../../Images/Fried-Rice.jpg";
 
 export const dishes = [
   {
