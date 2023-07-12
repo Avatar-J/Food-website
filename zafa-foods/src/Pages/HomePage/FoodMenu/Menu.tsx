@@ -6,9 +6,9 @@ import { SectionHeader } from "../../../Components/GeneralStyling.js";
 const Menu = () => {
   return (
     <div className="Menu-container">
-      <h2>
+      <SectionHeader>
         Menu List <span>All dishes are Halal</span>
-      </h2>
+      </SectionHeader>
       <div className="Menu-wrapper">
         {menulist.map((item) => {
           return (

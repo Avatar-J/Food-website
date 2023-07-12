@@ -1,0 +1,48 @@
+.chefs-section-container {
+  width: 100%;
+}
+
+.chefs-section-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  padding: 20px;
+}
+
+.chef-img-container {
+  width: 300px;
+  height: 400px;
+  position: relative;
+}
+
+.chef-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chefs-intro-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: 0.5s ease;
+}
+.chefs-intro-overlay h2 {
+  text-align: center;
+  font-weight: 300px;
+  font-size: 28px;
+  color: rgba(10, 167, 23, 1);
+}
+
+.chef-intro-det {
+  display: none;
+}
+
+.chef-img-container :hover .chef-intro-det {
+  display: block;
+  color: white;
+  text-align: center;
+  height: 100%;
+}

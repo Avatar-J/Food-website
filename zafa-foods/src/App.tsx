@@ -10,12 +10,16 @@ import {
   Link,
 } from "react-router-dom";
 import Homepage from "./Pages/HomePage/Homepage";
+import Branches from "./Pages/Branches/Branches";
+import AboutUs from "./Pages/AboutUs/AboutUs";
 
 function App() {
   const router1 = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Homepage />} />
+        <Route path="/branches" element={<Branches />} />
+        <Route path="/Aboutus" element={<AboutUs />} />
       </Route>
     )
   );

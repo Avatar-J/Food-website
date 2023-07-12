@@ -29,7 +29,7 @@ export default function Navbar() {
           <Link to="/Services">Services</Link>
 
           <div className="branches">
-            <Link to="#" onClick={showDropdown}>
+            <Link to="/branches" onClick={showDropdown}>
               Branches
               <MdOutlineArrowDropDown />
             </Link>

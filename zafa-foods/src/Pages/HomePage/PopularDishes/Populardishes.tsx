@@ -3,6 +3,7 @@ import { dishes } from "./Dishes";
 import "./Populardishes.css";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { SectionHeader } from "../../../Components/GeneralStyling";
 
 function Populardishes() {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -47,7 +48,7 @@ function Populardishes() {
 
   return (
     <div className="slider-container">
-      <h2>Popular Dishes</h2>
+      <SectionHeader>Popular Dishes</SectionHeader>
       <div className="slider-wrapper">
         <div className="slider-arrow" onClick={scrollPrevious}>
           <BsFillArrowLeftCircleFill />
