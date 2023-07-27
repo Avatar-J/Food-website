@@ -34,10 +34,16 @@
   font-weight: 300px;
   font-size: 28px;
   color: rgba(10, 167, 23, 1);
+  transform: translateY(0);
 }
 
 .chef-intro-det {
   display: none;
+}
+
+.chef-img-container:hover {
+  scale: 1.1;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
 }
 
 .chef-img-container :hover .chef-intro-det {

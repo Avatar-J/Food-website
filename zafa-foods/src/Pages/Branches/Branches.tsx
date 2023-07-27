@@ -16,6 +16,7 @@ const Data = [
     img: branch1,
     alt: "madina branch",
     imgstart: false,
+    clname: "left",
   },
   {
     name: "Ridge branch",
@@ -23,6 +24,7 @@ const Data = [
     img: branch2,
     alt: "ridge branch",
     imgstart: true,
+    clname: "right",
   },
 ];
 

@@ -43,6 +43,13 @@ export const BranchSection = styled.div`
   & .img-box :nth-child(even) {
     grid-row-start: 1;
   }
+
+  & .left{
+
+  }
+  & .right{
+    
+  }
   
 
   & .branch-img-container{

@@ -1,0 +1,55 @@
+.timeline-container {
+  width: 100vw;
+  height: auto;
+  display: grid;
+  place-content: center;
+}
+
+.timeline-wrapper {
+  width: 1200px;
+  position: relative;
+}
+.timeline-content-container {
+  width: 47%;
+  height: 250px;
+  padding: 20px;
+  position: relative;
+  background-color: azure;
+}
+.timeline-content-container .text-box {
+  background-color: aquamarine;
+  padding: 20px 20px;
+  border-radius: 20px;
+}
+.timeline-wrapper .right {
+  left: 0;
+}
+.timeline-wrapper .left {
+  left: 50%;
+}
+.timeline-content-container .middle-point {
+  width: 40px;
+  height: 40px;
+  background-color: green;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 10;
+  top: 20px;
+  left: -28px;
+}
+.timeline-wrapper .right .middle-point {
+  left: -20px;
+}
+.timeline-wrapper .left .middle-point {
+  right: -20px;
+}
+.timeline-container ::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background-color: orange;
+  left: 49%;
+  top: 0;
+  z-index: -1;
+}
