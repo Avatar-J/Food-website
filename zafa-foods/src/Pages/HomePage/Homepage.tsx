@@ -1,13 +1,13 @@
 import "./Homepage.css";
-import Herosection from "./HeroSection/Herosection";
-import Populardishes from "./PopularDishes/Populardishes";
+import HeroSection from "./HeroSection/HeroSection";
+import PopularDishes from "./PopularDishes/PopularDishes";
 import Menu from "./FoodMenu/Menu";
 
 function Homepage() {
   return (
     <div className="Home-container">
-      <Herosection />
-      <Populardishes />
+      <HeroSection />
+      <PopularDishes />
       <Menu />
       <div className="overlay"></div>
     </div>
