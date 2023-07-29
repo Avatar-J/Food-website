@@ -4,10 +4,10 @@ import HerosectionImg2 from "../../../Images/hero2.jpg";
 import HerosectionImg3 from "../../../Images/hero3.jpg";
 import HerosectionImg4 from "../../../Images/hero4.jpg";
 import HerosectionImg5 from "../../../Images/hero5.jpg";
-import "./Herosection.css";
+import "./HeroSection.css";
 import { SectionHeader } from "../../../Components/GeneralStyling";
 
-export default function Herosection() {
+export default function HeroSection() {
   return (
     <>
       <div className="Hero-Container">

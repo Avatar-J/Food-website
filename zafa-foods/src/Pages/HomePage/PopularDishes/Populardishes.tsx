@@ -5,7 +5,7 @@ import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { SectionHeader } from "../../../Components/GeneralStyling";
 
-function Populardishes() {
+function PopularDishes() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isdragging, setIsdragging] = useState(false);
   const [startX, setStartX] = useState<number>(0);
@@ -76,4 +76,4 @@ function Populardishes() {
   );
 }
 
-export default Populardishes;
+export default PopularDishes;
