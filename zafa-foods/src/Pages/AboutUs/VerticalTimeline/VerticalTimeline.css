@@ -1,8 +1,10 @@
 .timeline-container {
   width: 100vw;
-  height: auto;
+  height: 50vh;
   display: grid;
   place-content: center;
+  margin-bottom: 50px;
+  overflow: hidden;
 }
 
 .timeline-wrapper {

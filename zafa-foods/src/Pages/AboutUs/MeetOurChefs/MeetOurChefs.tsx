@@ -2,53 +2,65 @@ import React from "react";
 import Derrick from "../../../Images/derrick.jpg";
 import Amidu from "../../../Images/Amidu.jpg";
 import John from "../../../Images/John.jpg";
+import Afia from "../../../Images/afia.jpg";
+import Hamza from "../../../Images/Hamza.jpg";
+import Akosua from "../../../Images/Akosua.jpg";
 import "./MeetOurChefs.css";
-import { SectionHeader } from "../../../Components/GeneralStyling";
+import {
+  SectionHeader,
+  SectionContainer,
+  CardSectionWrapper,
+  Card,
+  CardImg,
+  CardTitle,
+  ImageAdjust,
+  CardOverlay,
+} from "../../../Components/GeneralStyling";
 
 const chefs = [
   {
-    name: "Derrick",
+    name: "Chef Derrick",
     img: Derrick,
-    info: "Cooking comes natural to me. I hate to brag, but my food is out of this world and you can only enjoy it at Zafa foods",
+    info: "Meet Chef Derrick Smith, a culinary virtuoso with a passion for French cuisine, creating dishes that leave a lasting impression with delightful fusion of classic techniques and contemporary twists",
   },
   {
-    name: "Amidu",
-    img: Amidu,
-    info: "I believe that food is life and the key to happiness.Only Zafa foods can provide that",
+    name: "Chef Amidu",
+    img: Hamza,
+    info: "Discover the culinary brilliance of Chef Amidu Alhassan, whose passion for farm-to-table cooking shines through in every dish, offering a delightful symphony of flavors that celebrate the freshest seasonal ingredients",
   },
   {
-    name: "John",
-    img: John,
-    info: "Here at Zafa food, we treat everyone like family and that is why we cook with love",
+    name: "Chef Mary",
+    img: Akosua,
+    info: "Introducing Chef Akosua Agyapong, an award-winning culinary artist renowned for her exquisite pastry creations, infusing flavors from around the world into delightful desserts that captivate every diner's palate",
   },
   {
-    name: "Afia",
-    img: Amidu,
-    info: "Our food takes you down memory lane. It tatses just like how mama makes it",
+    name: "Chef Afia",
+    img: Afia,
+    info: "Introducing Chef Afia Danso, a rising star in the culinary world, known for her artistic presentations and a mastery of bold flavors that awaken the senses, offering a dining experience that is as visually stunning as it is delicious",
   },
 ];
 
 function MeetOurChefs() {
   return (
     <>
-      <div className="chefs-section-container">
+      <SectionContainer style={{ marginTop: "20px" }}>
         <SectionHeader>Meet Our Chefs</SectionHeader>
 
-        <div className="chefs-section-wrapper">
+        <CardSectionWrapper>
           {chefs.map((chef) => {
             return (
-              <div className="chef-img-container">
-                <img src={chef.img} alt={chef.name} />
+              <Card>
+                <ImageAdjust src={chef.img} alt={chef.name} />
 
-                <div className="chefs-intro-overlay">
-                  <h2>{chef.name}</h2>
-                  <p className="chef-intro-det">{chef.info}</p>
-                </div>
-              </div>
+                <CardOverlay>
+                  <CardTitle>{chef.name}</CardTitle>
+                  <p className="card-info">{chef.info}</p>
+                </CardOverlay>
+              </Card>
             );
           })}
-        </div>
-      </div>
+        </CardSectionWrapper>
+      </SectionContainer>
     </>
   );
 }

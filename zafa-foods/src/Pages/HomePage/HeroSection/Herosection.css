@@ -1,7 +1,7 @@
 .Hero-Container {
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: #000000;
   position: relative;
 }
 
@@ -10,7 +10,7 @@
   position: absolute;
   background-image: linear-gradient(
     120deg,
-    rgba(53, 104, 78, 0.5),
+    rgba(0, 0, 0, 0.5),
     rgba(0, 0, 0, 0.5)
   );
   width: 100vw;
@@ -35,6 +35,9 @@
   height: 100%;
   color: white;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .overlay-text h1 {
   font-size: 40px;

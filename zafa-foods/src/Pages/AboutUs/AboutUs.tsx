@@ -5,7 +5,7 @@ import VerticalTimeline from "./VerticalTimeline/VerticalTimeline";
 function AboutUs() {
   return (
     <div>
-      <VerticalTimeline />
+      {/* <VerticalTimeline /> */}
       <MeetOurChefs />
     </div>
   );
