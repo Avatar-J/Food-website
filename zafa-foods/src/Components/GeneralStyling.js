@@ -4,7 +4,7 @@ export const SectionHeader = styled.h2`
   text-align: center;
   font-weight: 500px;
   font-size: 32px;
-  padding: 10px;
+  padding: 5px;
   background-color: rgba(10, 167, 23, 1);
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -23,7 +23,7 @@ export const SectionHeader = styled.h2`
 `;
 
 export const SectionContainer = styled.div`
-  margin: 10px;
+  margin-bottom: 10px;
   width: 100%;
   padding: 20px;
   height: 400px;
@@ -56,6 +56,38 @@ export const Card = styled.div`
     display: block;
     color: white;
     height: 100%;
+  }
+`;
+
+export const Text = styled.p`
+  width: 100%;
+  font-size: 18px;
+  font-weight: 25px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  flex-wrap: wrap;
+`;
+export const CurvedCard = styled.div`
+  width: 350px;
+  height: 400px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  border-top-left-radius: 160px;
+  border-top-right-radius: 160px;
+
+  &:nth-child(1) {
+    background-color: rgb(84, 245, 138);
+  }
+  &:nth-child(2) {
+    background-color: rgb(84, 245, 138);
+  }
+  &:nth-child(3) {
+    background-color: #fcea64;
   }
 `;
 

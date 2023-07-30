@@ -12,6 +12,7 @@ import {
 import Homepage from "./Pages/HomePage/Homepage";
 import Branches from "./Pages/Branches/Branches";
 import AboutUs from "./Pages/AboutUs/AboutUs";
+import Services from "./Pages/Services/Services";
 
 function App() {
   const router1 = createBrowserRouter(
@@ -20,6 +21,7 @@ function App() {
         <Route index element={<Homepage />} />
         <Route path="/branches" element={<Branches />} />
         <Route path="/Aboutus" element={<AboutUs />} />
+        <Route path="/Services" element={<Services />} />
       </Route>
     )
   );
