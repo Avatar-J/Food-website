@@ -15,6 +15,7 @@ import { branchDetails } from "../../Data";
 function Branches() {
   return (
     <>
+      <SectionHeader>Branches</SectionHeader>
       <BranchSection>
         <div className="branch-description">
           <SectionHeader>{branchDetails[0].name}</SectionHeader>
@@ -28,14 +29,13 @@ function Branches() {
         </div>
       </BranchSection>
 
-      <SectionContainer>
+      {/* <SectionContainer>
         <CardSectionWrapper>
           {branchDetails[0].CardItems.map((items) => {
             return (
-              <Card>
-                <CardImg>
-                  <ImageAdjust src={items.img} alt={items.img} />
-                </CardImg>
+              <Card style={{ border: "solid", borderRadius: "20px" }}>
+                <ImageAdjust src={items.img} alt={items.img} />
+
                 <CardOverlay>
                   <CardTitle>{items.title}</CardTitle>
                   <p className="card-info"></p>
@@ -44,7 +44,7 @@ function Branches() {
             );
           })}
         </CardSectionWrapper>
-      </SectionContainer>
+      </SectionContainer> */}
 
       <BranchSection>
         <div className="img-box">
@@ -59,14 +59,13 @@ function Branches() {
         </div>
       </BranchSection>
 
-      <SectionContainer>
+      {/* <SectionContainer>
         <CardSectionWrapper>
           {branchDetails[1].CardItems.map((items) => {
             return (
               <Card>
-                <CardImg>
-                  <ImageAdjust src={items.img} alt={items.img} />
-                </CardImg>
+                <ImageAdjust src={items.img} alt={items.img} />
+
                 <CardOverlay>
                   <CardTitle>{items.title}</CardTitle>
                   <p className="card-info"></p>
@@ -75,7 +74,7 @@ function Branches() {
             );
           })}
         </CardSectionWrapper>
-      </SectionContainer>
+      </SectionContainer> */}
     </>
   );
 }

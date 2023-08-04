@@ -16,7 +16,7 @@ function AboutUs() {
       <SectionContainer
         style={{
           height: "auto",
-          backgroundColor: "rgba(84,245,138, 0.7)",
+          // backgroundColor: "rgba(84,245,138, 0.7)",
         }}
       >
         <SectionHeader>Our Story</SectionHeader>

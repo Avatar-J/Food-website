@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Menu.css";
 import { menulist } from "./Menulist";
-import { SectionHeader } from "../../../Components/GeneralStyling.js";
+import {
+  SectionHeader,
+  MenuButton,
+  CardSectionWrapper,
+} from "../../Components/GeneralStyling.js";
 
 const Menu = () => {
+  const [displayedData, setDisplayedData] = useState(2);
+
+  const MenuChangeHandler = (index: number) => {
+    setDisplayedData(index);
+  };
+
   return (
     <div className="Menu-container">
       <SectionHeader>
-        Menu List <span>All dishes are Halal</span>
+        Menu List - <span>All dishes are Halal</span>
       </SectionHeader>
-      <div className="Menu-wrapper">
+
+      <CardSectionWrapper
+        style={{ gridTemplateColumns: "auto auto auto auto auto" }}
+      >
         {menulist.map((item) => {
+          return (
+            <>
+              <MenuButton>{item.Category}</MenuButton>
+            </>
+          );
+        })}
+      </CardSectionWrapper>
+
+      <SectionHeader>{menulist[displayedData].Category}</SectionHeader>
+
+      <div className="Menu-wrapper">
+        {menulist[displayedData].menu.map((item) => {
           return (
             <>
               <div className="Menu-item">
