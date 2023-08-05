@@ -141,8 +141,8 @@ export const BranchSection = styled.div`
   }
 
   & .branch-img-container {
-    width: 600px;
-    height: 500px;
+    width: 500px;
+    height: 400px;
     background-color: rgba(0, 0, 0, 0.5);
   }
 

@@ -23,10 +23,12 @@ const Menu = () => {
       <CardSectionWrapper
         style={{ gridTemplateColumns: "auto auto auto auto auto" }}
       >
-        {menulist.map((item) => {
+        {menulist.map((item, index) => {
           return (
             <>
-              <MenuButton>{item.Category}</MenuButton>
+              <MenuButton onClick={() => MenuChangeHandler(index)}>
+                {item.Category}
+              </MenuButton>
             </>
           );
         })}

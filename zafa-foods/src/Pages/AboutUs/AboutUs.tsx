@@ -11,7 +11,7 @@ import {
 
 function AboutUs() {
   return (
-    <div>
+    <>
       {/* <VerticalTimeline /> */}
       <SectionContainer
         style={{
@@ -33,8 +33,6 @@ function AboutUs() {
 
         <Text>Bon appétit!</Text>
       </SectionContainer>
-
-      <MeetOurChefs />
 
       <SectionContainer>
         <CardSectionWrapper style={{ gridTemplateColumns: "auto auto" }}>
@@ -60,7 +58,9 @@ function AboutUs() {
           </CurvedCard>
         </CardSectionWrapper>
       </SectionContainer>
-    </div>
+
+      <MeetOurChefs />
+    </>
   );
 }
 
