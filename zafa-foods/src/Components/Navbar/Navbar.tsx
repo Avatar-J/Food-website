@@ -29,15 +29,7 @@ export default function Navbar() {
           <Link to="/Services">Services</Link>
 
           <div className="branches">
-            <Link to="/branches" onClick={showDropdown}>
-              Branches
-              <MdOutlineArrowDropDown />
-            </Link>
-
-            {/* <div className={`branches ${dropdown ? "branch" : "location"}`}>
-              <Link to="/Madina">Madina</Link>
-              <Link to="/Accra-Ridge">Ridge-Accra</Link>
-            </div> */}
+            <Link to="/Menu">Menu</Link>
           </div>
 
           <Link to="/Aboutus">AboutUs</Link>

@@ -4,7 +4,7 @@ export const SectionHeader = styled.h2`
   text-align: center;
   font-weight: 500px;
   font-size: 32px;
-  padding: 10px;
+  padding: 5px;
   background-color: rgba(10, 167, 23, 1);
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -23,22 +23,22 @@ export const SectionHeader = styled.h2`
 `;
 
 export const SectionContainer = styled.div`
-  margin: 10px;
+  margin-bottom: 10px;
   width: 100%;
   padding: 20px;
-  height: 400px;
+  height: auto;
   display: grid;
   place-content: center;
 `;
 
 export const CardSectionWrapper = styled.div`
-  width: 100%,
-  height: 350px;
+  width: 100%;
+  height: auto;
   display: grid;
   place-content: center;
   grid-template-columns: auto auto auto auto;
   column-gap: 25px;
-  position: relative;
+  row-gap: 50px;
 `;
 
 export const Card = styled.div`
@@ -59,9 +59,42 @@ export const Card = styled.div`
   }
 `;
 
+export const Text = styled.p`
+  width: 100%;
+  font-size: 18px;
+  font-weight: 25px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  flex-wrap: wrap;
+`;
+export const CurvedCard = styled.div`
+  width: 350px;
+  height: 400px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  border-top-left-radius: 160px;
+  border-top-right-radius: 160px;
+  border: 2px solid rgb(84, 245, 138);
+
+  /* &:nth-child(1) {
+    background-color: rgb(84, 245, 138);
+  }
+  &:nth-child(2) {
+    background-color: rgb(84, 245, 138);
+  }
+  &:nth-child(3) {
+    background-color: #fcea64;
+  } */
+`;
+
 export const CardImg = styled.div`
   width: 100%;
-  height: 100%;
+  height: 70%;
 `;
 
 export const CardTitle = styled.div`
@@ -93,7 +126,7 @@ export const CardOverlay = styled.div`
 
 export const BranchSection = styled.div`
   width: 100%;
-  height 400px;
+  height: 400px;
   margin: 20px;
   display: grid;
   grid-template-columns: auto auto;
@@ -102,42 +135,49 @@ export const BranchSection = styled.div`
     grid-row-start: 1;
   }
 
-  & .left{
-
+  & .left {
   }
-  & .right{
-    
-  }
-  
-
-  & .branch-img-container{
-     width: 600px;
-     height:500px;
-     background-color: rgba(0,0,0,0.5);
+  & .right {
   }
 
-  & .branch-description{
-     padding: 30px;
-     display: grid;
-     place-content: center;
-     position: relative;
-     z-index: 1;
+  & .branch-img-container {
+    width: 500px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
-  & .branch-description::after{
-   content: "";
-   width: 100px;
-   height: 100px;
-   position: absolute;
-   background-color: yellow;
-   top:30%;
-   left: 60%;
-   border-radius: 50%;
-   z-index: -1;
- }
-
-  &.img-box{
-    width: 50%
+  & .branch-description {
+    padding: 30px;
+    display: grid;
+    place-content: center;
+    position: relative;
+    z-index: 1;
   }
 
+  & .branch-description::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: yellow;
+    top: 30%;
+    left: 60%;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  &.img-box {
+    width: 50%;
+  }
+`;
+
+export const MenuButton = styled.button`
+  width: 150px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 7px;
+  border: none;
+  background-color: rgb(84, 245, 138);
+  font-size: 1rem;
+  font-weight: 400;
 `;
