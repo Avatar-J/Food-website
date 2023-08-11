@@ -3,13 +3,13 @@
   justify-content: space-between;
   background-color: transparent;
   height: 80px;
-  /* position: fixed;
+  position: fixed;
   top: 0;
-  left: 0;
-  right: 0; */
-  z-index: 10;
+  width: 100%;
+  z-index: 101;
   padding: 0.5rem;
   background-color: black;
+  overflow: hidden;
 }
 
 .Logo {
@@ -26,6 +26,7 @@
 
 .Humburger {
   display: none;
+  cursor: pointer;
 }
 
 .nav-menu {
@@ -77,12 +78,21 @@
   padding: 10px;
 } */
 
-@media screen and (max-width: 845px) {
-  .Logo {
-    font-size: 25px;
+/*For mobile phones*/
+@media only screen and (max-width: 768px) {
+  .Navbar-container {
+    width: 100vw; /* Use viewport width */
+    max-width: 100%;
   }
   .nav-menu {
     display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
   }
 
   .Humburger {
@@ -94,7 +104,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 75%);
+    /* transform: translate(-100%, 75%); */
     color: green;
   }
 }

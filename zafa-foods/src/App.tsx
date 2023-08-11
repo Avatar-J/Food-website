@@ -13,6 +13,7 @@ import Homepage from "./Pages/HomePage/Homepage";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Services from "./Pages/Services/Services";
 import Menu from "./Pages/Menu/Menu";
+import Booking from "./Pages/Booking/Booking";
 
 function App() {
   const router1 = createBrowserRouter(
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Menu" element={<Menu />} />
         <Route path="/Aboutus" element={<AboutUs />} />
         <Route path="/Services" element={<Services />} />
+        <Route path="/Booking" element={<Booking />} />
       </Route>
     )
   );
