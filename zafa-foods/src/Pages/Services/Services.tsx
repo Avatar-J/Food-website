@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   SectionContainer,
   SectionHeader,
@@ -7,12 +8,21 @@ import {
   ImageAdjust,
   Text,
   CardTitle,
+  Button,
+  PageOverlay,
 } from "../../Components/GeneralStyling";
 import { services } from "./servicesData";
 
 function Services() {
+  const [readMore, setReadMore] = useState(false);
+
+  const readMoreHandler = () => {
+    setReadMore(!readMore);
+  };
   return (
     <>
+      {readMore ? <PageOverlay onClick={readMoreHandler}></PageOverlay> : ""}
+
       <SectionContainer>
         <SectionHeader>Services</SectionHeader>
         <CardSectionWrapper
@@ -25,7 +35,20 @@ function Services() {
                   <CardImg>
                     <ImageAdjust src={item.img} />
                   </CardImg>
-                  <CardTitle>{item.title}</CardTitle>
+                  <div
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <CardTitle>{item.title}</CardTitle>
+                    <div>
+                      <Button onClick={readMoreHandler}>Read more</Button>
+                    </div>
+                  </div>
                 </Card>
               </>
             );

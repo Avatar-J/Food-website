@@ -15,7 +15,7 @@
 .slider-wrapper {
   height: 350px;
   width: 1200px;
-  position: relative;
+  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,12 +26,15 @@
   grid-template-columns: repeat(3, 1fr);
   overflow: hidden; */
   display: grid;
+  width: 100%;
+  grid-template-columns: calc(100% / 3);
   grid-auto-flow: column;
-  grid-auto-columns: calc(100% / 3);
+  /* grid-auto-flow: column;
+  grid-auto-columns: calc(100% / 3); */
   /* flex-direction: row;
   flex-wrap: nowrap;
   overflow: hidden; */
-  gap: 1rem;
+  gap: 1.8rem;
   overflow: hidden;
 }
 
@@ -59,16 +62,27 @@
   font-size: 2rem;
   color: green;
   z-index: 1;
-  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23); */
 }
 
-@media screen and (max-width: 900px) {
-  .food-carousel {
-    grid-auto-columns: calc(100% / 2);
+/*For mobile phones*/
+@media only screen and (max-width: 768px) {
+  .slider-container {
+    height: 300px;
+    width: 100vw;
+    max-width: 100%;
   }
-}
-@media screen and (max-width: 600px) {
+  .slider-wrapper {
+    height: 300px;
+    width: 100vw;
+    max-width: 100%;
+  }
+  .food-img {
+    width: 200px;
+    height: 200px;
+  }
   .food-carousel {
-    grid-auto-columns: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
   }
 }

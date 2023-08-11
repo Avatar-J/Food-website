@@ -44,7 +44,7 @@ export const services = [
     img: Delivery,
   },
   {
-    title: "Personal Home Food Stocking",
+    title: "Fridge Stocking",
     Info: "Experience the ultimate convenience with our personal home food stocking service",
     More: "Experience the ultimate convenience with our personal home food stocking service. Say goodbye to meal prep stress and enjoy chef-prepared dishes in the comfort of your home. Our diverse menu offers a variety of ready-to-eat options that cater to your taste and dietary preferences. From busy workdays to leisurely weekends, we've got your meals covered. At [Restaurant Name], we bring the taste of our restaurant to your kitchen. Stock up on deliciousness today and savor the luxury of freshly prepared meals at your fingertips",
     img: Stocking,

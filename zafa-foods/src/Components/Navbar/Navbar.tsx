@@ -32,6 +32,10 @@ export default function Navbar() {
             <Link to="/Menu">Menu</Link>
           </div>
 
+          <div className="branches">
+            <Link to="/Booking">Booking</Link>
+          </div>
+
           <Link to="/Aboutus">AboutUs</Link>
         </div>
       </div>

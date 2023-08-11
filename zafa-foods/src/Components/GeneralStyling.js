@@ -20,6 +20,12 @@ export const SectionHeader = styled.h2`
       background-position: 0%;
     }
   }
+
+  /*For mobile phones*/
+  @media only screen and (max-width: 768px) {
+    font-weight: 300px;
+    font-size: 25px;
+  }
 `;
 
 export const SectionContainer = styled.div`
@@ -100,7 +106,7 @@ export const CardImg = styled.div`
 export const CardTitle = styled.div`
   text-align: center;
   font-weight: 300px;
-  font-size: 28px;
+  font-size: 25px;
   color: rgba(10, 167, 23, 1);
   transform: translateY(0);
 `;
@@ -169,6 +175,25 @@ export const BranchSection = styled.div`
   &.img-box {
     width: 50%;
   }
+
+  /*For mobile phones*/
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    grid-template-columns: auto;
+
+    & .branch-img-container {
+      width: 100%;
+      height: 300px;
+    }
+    & .branch-description::after {
+      content: "";
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 55%;
+    }
+  }
 `;
 
 export const MenuButton = styled.button`
@@ -180,4 +205,21 @@ export const MenuButton = styled.button`
   background-color: rgb(84, 245, 138);
   font-size: 1rem;
   font-weight: 400;
+`;
+
+export const Button = styled.button`
+  width: 200px;
+  padding: 10px;
+  border: none;
+  background-color: orange;
+  font-size: 1rem;
+  font-weight: 400;
+`;
+
+export const PageOverlay = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 100;
 `;
