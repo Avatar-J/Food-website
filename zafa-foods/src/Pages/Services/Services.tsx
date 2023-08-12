@@ -12,17 +12,23 @@ import {
   PageOverlay,
 } from "../../Components/GeneralStyling";
 import { services } from "./servicesData";
+import Modals from "../../Components/Modals";
 
 function Services() {
   const [readMore, setReadMore] = useState(false);
+  const [moreInfo, setMoreInfo] = useState("");
+  const [service, setService] = useState("");
 
   const readMoreHandler = () => {
     setReadMore(!readMore);
   };
+
+  const modalInfoHandler = (more: string, title: string) => {
+    setMoreInfo(more);
+    setService(title);
+  };
   return (
     <>
-      {readMore ? <PageOverlay onClick={readMoreHandler}></PageOverlay> : ""}
-
       <SectionContainer>
         <SectionHeader>Services</SectionHeader>
         <CardSectionWrapper
@@ -31,7 +37,15 @@ function Services() {
           {services.map((item) => {
             return (
               <>
-                <Card style={{}}>
+                {readMore ? (
+                  <Modals closeModal={readMoreHandler}>
+                    <SectionHeader>{service}</SectionHeader>
+                    <Text>{moreInfo}</Text>
+                    <Button>Book Now</Button>
+                  </Modals>
+                ) : null}
+
+                <Card>
                   <CardImg>
                     <ImageAdjust src={item.img} />
                   </CardImg>
@@ -46,7 +60,14 @@ function Services() {
                   >
                     <CardTitle>{item.title}</CardTitle>
                     <div>
-                      <Button onClick={readMoreHandler}>Read more</Button>
+                      <Button
+                        onClick={() => {
+                          readMoreHandler();
+                          modalInfoHandler(item.More, item.title);
+                        }}
+                      >
+                        Read more
+                      </Button>
                     </div>
                   </div>
                 </Card>
