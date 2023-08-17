@@ -222,11 +222,24 @@ export const PageOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  /* background-color: rgba(0, 0, 0, 0.4); */
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+`;
+
+export const FormElement = styled.div`
+  margin: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+export const Input = styled.input`
+  outline: none;
+  border: none;
+  border: 1px solid black;
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
 `;
