@@ -8,6 +8,7 @@ import {
 import { formLabel } from "./formLabel";
 import { styled } from "styled-components";
 import { MdOutlineArrowDropDown } from "react-icons/md";
+import DatePicker from "../../Components/DatePicker";
 
 const Booking = () => {
   const [openDropdown, setOpenDropdown] = useState<boolean[]>(
@@ -36,6 +37,8 @@ const Booking = () => {
     <>
       <SectionContainer>
         <SectionHeader>Book for an event</SectionHeader>
+
+        <DatePicker />
 
         <div>
           {formLabel.map((item, index) => {
