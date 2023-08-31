@@ -14,6 +14,7 @@ import AboutUs from "./Pages/AboutUs/AboutUs";
 import Services from "./Pages/Services/Services";
 import Menu from "./Pages/Menu/Menu";
 import Booking from "./Pages/Booking/Booking";
+import { Content } from "./Components/GeneralStyling";
 
 function App() {
   const router1 = createBrowserRouter(
@@ -38,7 +39,9 @@ const Root = () => {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <Content>
+        <Outlet />
+      </Content>
     </>
   );
 };

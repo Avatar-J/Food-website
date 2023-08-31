@@ -1,7 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
-const weekdays = ["Su", "Sa", "Mo", "Tu", "We", "Th", "Fr"];
+const weekdays = [
+  "Sunday",
+  "Saturday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+];
 const months = [
   "January",
   "Febraury",
@@ -18,13 +28,25 @@ const months = [
 ];
 
 function DatePicker() {
+  const sliceDayHandler = (day: string) => {
+    return day.slice(0, 2);
+  };
+
+  // function getWeeksForMonth = (month: number, year: number)=>{
+
+  // }
+
   return (
     <>
       <DatePickerContainer>
-        <Month>{months[6]}</Month>
+        <Month>
+          <AiOutlineArrowLeft />
+          {months[6]}
+          <AiOutlineArrowRight />
+        </Month>
         <WeekdayContainer>
-          {weekdays.map((month) => {
-            return <div className="weekday">{month}</div>;
+          {weekdays.map((day) => {
+            return <div className="weekday">{sliceDayHandler(day)}</div>;
           })}
         </WeekdayContainer>
       </DatePickerContainer>
@@ -39,12 +61,13 @@ const DatePickerContainer = styled.div`
     0 1px 3px 0 rgba(63, 63, 68, 0.15);
   display: flex;
   flex-direction: column;
+  padding: 10px;
 `;
 
 const Month = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 

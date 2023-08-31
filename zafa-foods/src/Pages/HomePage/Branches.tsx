@@ -1,82 +1,103 @@
 import React from "react";
-import {
-  SectionHeader,
-  BranchSection,
-  SectionContainer,
-  CardSectionWrapper,
-  Card,
-  CardImg,
-  CardTitle,
-  ImageAdjust,
-  CardOverlay,
-} from "../../Components/GeneralStyling";
+import { SectionHeader, ImageAdjust } from "../../Components/GeneralStyling";
 import { branchDetails } from "../../Data";
+import styled from "styled-components";
 
 function Branches() {
   return (
     <>
       <SectionHeader>Branches</SectionHeader>
-      <BranchSection>
-        <div className="branch-description">
-          <SectionHeader>{branchDetails[0].name}</SectionHeader>
-          <p>{branchDetails[0].paragraph}</p>
-        </div>
 
-        <div className="img-box">
-          <div className="branch-img-container">
-            <ImageAdjust src={branchDetails[0].img} alt="Madina Branch" />
-          </div>
-        </div>
-      </BranchSection>
+      {branchDetails.map((item) => {
+        return (
+          <>
+            <BranchSection isReverse={item.position}>
+              <div className="branch-description">
+                <SectionHeader>{item.name}</SectionHeader>
+                <p>{item.paragraph}</p>
+              </div>
 
-      {/* <SectionContainer>
-        <CardSectionWrapper>
-          {branchDetails[0].CardItems.map((items) => {
-            return (
-              <Card style={{ border: "solid", borderRadius: "20px" }}>
-                <ImageAdjust src={items.img} alt={items.img} />
-
-                <CardOverlay>
-                  <CardTitle>{items.title}</CardTitle>
-                  <p className="card-info"></p>
-                </CardOverlay>
-              </Card>
-            );
-          })}
-        </CardSectionWrapper>
-      </SectionContainer> */}
-
-      <BranchSection>
-        <div className="img-box">
-          <div className="branch-img-container">
-            <ImageAdjust src={branchDetails[1].img} alt="Madina Branch" />
-          </div>
-        </div>
-
-        <div className="branch-description">
-          <SectionHeader>{branchDetails[1].name}</SectionHeader>
-          <p>{branchDetails[1].paragraph}</p>
-        </div>
-      </BranchSection>
-
-      {/* <SectionContainer>
-        <CardSectionWrapper>
-          {branchDetails[1].CardItems.map((items) => {
-            return (
-              <Card>
-                <ImageAdjust src={items.img} alt={items.img} />
-
-                <CardOverlay>
-                  <CardTitle>{items.title}</CardTitle>
-                  <p className="card-info"></p>
-                </CardOverlay>
-              </Card>
-            );
-          })}
-        </CardSectionWrapper>
-      </SectionContainer> */}
+              <div className="img-container">
+                {item.img.map((img) => {
+                  return (
+                    <>
+                      <div className="branch-img-container">
+                        <ImageAdjust src={img} alt={item.name} />
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </BranchSection>
+          </>
+        );
+      })}
     </>
   );
 }
 
 export default Branches;
+
+interface BranchSectionProps {
+  isReverse: boolean;
+}
+
+const BranchSection = styled.div<BranchSectionProps>`
+  width: 100vw;
+  height: 400px;
+  margin: 20px;
+  display: flex;
+  flex-direction: ${(props) => (props.isReverse ? "row-reverse" : "row")};
+
+  &.img-container {
+    width: 50%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: flex;
+  }
+
+  & .branch-img-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  & .branch-description {
+    width: 50%;
+    padding: 30px;
+    display: grid;
+    place-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  & .branch-description::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: yellow;
+    top: 30%;
+    left: 60%;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  /*For mobile phones*/
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    grid-template-columns: auto;
+
+    & .branch-img-container {
+      width: 100%;
+      height: 300px;
+    }
+    & .branch-description::after {
+      content: "";
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 55%;
+    }
+  }
+`;

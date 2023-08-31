@@ -13,7 +13,7 @@ import {
 function MeetOurChefs() {
   return (
     <>
-      <SectionContainer style={{ marginTop: "10px" }}>
+      <SectionContainer>
         <SectionHeader>Meet Our Chefs</SectionHeader>
 
         <CardSectionWrapper>

@@ -9,10 +9,10 @@ import {
   Text,
   CardTitle,
   Button,
-  PageOverlay,
 } from "../../Components/GeneralStyling";
 import { services } from "./servicesData";
 import Modals from "../../Components/Modals";
+import { Link } from "react-router-dom";
 
 function Services() {
   const [readMore, setReadMore] = useState(false);
@@ -31,6 +31,15 @@ function Services() {
     <>
       <SectionContainer>
         <SectionHeader>Services</SectionHeader>
+
+        <Text>
+          we offer a range of services designed to delight every guest.
+          <br /> Whether you're joining us for a romantic dinner, a family
+          celebration, or a casual get-together,
+          <br /> Zafa Foods is dedicated to providing you with exceptional
+          cuisine and a memorable time.
+        </Text>
+
         <CardSectionWrapper
           style={{ gridTemplateColumns: "auto auto auto", columnGap: "40px" }}
         >
@@ -41,7 +50,9 @@ function Services() {
                   <Modals closeModal={readMoreHandler}>
                     <SectionHeader>{service}</SectionHeader>
                     <Text>{moreInfo}</Text>
-                    <Button>Book Now</Button>
+                    <Link to="/Booking">
+                      <Button>Book Now</Button>
+                    </Link>
                   </Modals>
                 ) : null}
 
