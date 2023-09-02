@@ -7,7 +7,7 @@ const ModalContainer = styled.div`
   width: 60%;
   height: 60%;
   background-color: white;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
 `;
 

@@ -28,6 +28,10 @@ export const SectionHeader = styled.h2`
   }
 `;
 
+export const Content = styled.div`
+  margin-top: 50px;
+`;
+
 export const SectionContainer = styled.div`
   margin-bottom: 10px;
   width: 100%;
@@ -71,7 +75,7 @@ export const Text = styled.p`
   font-weight: 25px;
   display: flex;
   flex-direction: column;
-
+  padding: 5px;
   align-items: center;
   flex-wrap: wrap;
 `;
@@ -115,6 +119,7 @@ export const ImageAdjust = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 `;
 
 export const CardOverlay = styled.div`
@@ -124,75 +129,10 @@ export const CardOverlay = styled.div`
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
   transition: 0.5s ease;
+  padding: 10px;
 
   & .card-info {
     display: none;
-  }
-`;
-
-export const BranchSection = styled.div`
-  width: 100%;
-  height: 400px;
-  margin: 20px;
-  display: grid;
-  grid-template-columns: auto auto;
-
-  & .img-box :nth-child(even) {
-    grid-row-start: 1;
-  }
-
-  & .left {
-  }
-  & .right {
-  }
-
-  & .branch-img-container {
-    width: 500px;
-    height: 400px;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  & .branch-description {
-    padding: 30px;
-    display: grid;
-    place-content: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  & .branch-description::after {
-    content: "";
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    background-color: yellow;
-    top: 30%;
-    left: 60%;
-    border-radius: 50%;
-    z-index: -1;
-  }
-
-  &.img-box {
-    width: 50%;
-  }
-
-  /*For mobile phones*/
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-    height: auto;
-    grid-template-columns: auto;
-
-    & .branch-img-container {
-      width: 100%;
-      height: 300px;
-    }
-    & .branch-description::after {
-      content: "";
-      width: 80px;
-      height: 80px;
-      top: 20%;
-      left: 55%;
-    }
   }
 `;
 
@@ -222,11 +162,31 @@ export const PageOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  /* background-color: rgba(0, 0, 0, 0.4); */
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   z-index: 100;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+`;
+
+export const FormElement = styled.div`
+  margin: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  & label {
+    width: 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+export const Input = styled.input`
+  outline: none;
+  border: none;
+  border: 1px solid black;
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
 `;
