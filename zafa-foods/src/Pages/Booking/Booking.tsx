@@ -4,7 +4,6 @@ import {
   SectionContainer,
   Input,
   FormElement,
-  Content,
 } from "../../Components/GeneralStyling";
 import { formLabel } from "./formLabel";
 import { styled } from "styled-components";

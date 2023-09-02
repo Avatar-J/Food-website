@@ -33,10 +33,10 @@ function Branches() {
                   <ImageAdjust
                     src={item.img[currentImg]}
                     alt={item.name}
-                    style={{
-                      clipPath: "circle(0% at 0% 100%)",
-                      transition: "all 0.7s",
-                    }}
+                    // style={{
+                    //   clipPath: "circle(0% at 0% 100%)",
+                    //   transition: "all 0.7s",
+                    // }}
                   />
                 </div>
                 {/* {item.img.map((img) => {
