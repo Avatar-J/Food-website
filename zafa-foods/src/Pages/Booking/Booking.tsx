@@ -4,7 +4,6 @@ import {
   SectionContainer,
   Input,
   FormElement,
-  Content,
 } from "../../Components/GeneralStyling";
 import { formLabel } from "./formLabel";
 import { styled } from "styled-components";
@@ -34,12 +33,18 @@ const Booking = () => {
       prevState.map((state, i) => (i === index ? false : state))
     );
   };
+
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
+  const datePickerHandler = () => {
+    setShowDatePicker(!showDatePicker);
+  };
   return (
     <>
       <SectionContainer>
         <SectionHeader>Book for an event</SectionHeader>
 
-        <DatePicker />
+        {/* <DatePicker /> */}
 
         <div>
           {formLabel.map((item, index) => {
@@ -86,6 +91,16 @@ const Booking = () => {
               </>
             );
           })}
+          <FormElement style={{}}>
+            <label>Date</label>
+            <Dropdown>
+              <DropdownBtn onClick={datePickerHandler}>
+                <div>Pick Date</div>
+                <MdOutlineArrowDropDown />
+              </DropdownBtn>
+              {showDatePicker ? <DatePicker /> : null}
+            </Dropdown>
+          </FormElement>
         </div>
       </SectionContainer>
     </>
