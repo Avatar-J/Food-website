@@ -3,6 +3,7 @@ import { SectionHeader, ImageAdjust } from "../../Components/GeneralStyling";
 import { branchDetails } from "../../Data";
 import styled from "styled-components";
 import { Button } from "../../Components/GeneralStyling";
+import Reviews from "./Reviews";
 
 function Branches() {
   const [currentImg, setCurrentImg] = useState(0);
@@ -20,7 +21,7 @@ function Branches() {
     <>
       <SectionHeader>Branches</SectionHeader>
 
-      {branchDetails.map((item) => {
+      {branchDetails.map((item, index) => {
         return (
           <>
             <BranchSection isReverse={item.position}>
@@ -57,6 +58,7 @@ function Branches() {
                 })} */}
               </div>
             </BranchSection>
+            <Reviews />
           </>
         );
       })}
@@ -78,7 +80,7 @@ const BranchSection = styled.div<BranchSectionProps>`
   flex-direction: ${(props) => (props.isReverse ? "row-reverse" : "row")};
 
   &.img-container {
-    width: 50%;
+    width: 60%;
     height: 100%;
     /* background-color: rgba(0, 0, 0, 0.5); */
     display: grid;
@@ -95,7 +97,7 @@ const BranchSection = styled.div<BranchSectionProps>`
   }
 
   & .branch-description {
-    width: 50%;
+    width: 40%;
     padding: 30px;
     display: grid;
     place-content: center;
