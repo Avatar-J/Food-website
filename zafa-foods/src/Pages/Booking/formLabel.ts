@@ -38,11 +38,11 @@ export const formLabel = [
   },
   {
     label: "Date",
-    type: "text",
+    type: "date",
   },
   {
     label: "Time",
-    type: "text",
+    type: "time",
   },
   {
     label: "Budget",

@@ -174,6 +174,7 @@ export const FormElement = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  position: relative;
 
   & label {
     width: 28%;

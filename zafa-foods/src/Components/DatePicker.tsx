@@ -145,6 +145,11 @@ const DatePickerContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  left: 0;
+  z-index: 99;
 `;
 
 const Month = styled.div`
