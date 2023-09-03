@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { SectionHeader, ImageAdjust } from "../../Components/GeneralStyling";
 import { branchDetails } from "../../Data";
 import styled from "styled-components";
+import { Button } from "../../Components/GeneralStyling";
 
 function Branches() {
   const [currentImg, setCurrentImg] = useState(0);
@@ -26,6 +27,12 @@ function Branches() {
               <div className="branch-description">
                 <SectionHeader>{item.name}</SectionHeader>
                 <p>{item.paragraph}</p>
+                <div
+                  style={{ display: "flex", justifyContent: "space-evenly" }}
+                >
+                  <Button>Order Now</Button>
+                  <Button>Book Now</Button>
+                </div>
               </div>
 
               <div className="img-container">
@@ -33,10 +40,10 @@ function Branches() {
                   <ImageAdjust
                     src={item.img[currentImg]}
                     alt={item.name}
-                    style={{
-                      clipPath: "circle(0% at 0% 100%)",
-                      transition: "all 0.7s",
-                    }}
+                    // style={{
+                    //   clipPath: "circle(0% at 0% 100%)",
+                    //   transition: "all 0.7s",
+                    // }}
                   />
                 </div>
                 {/* {item.img.map((img) => {
@@ -102,8 +109,8 @@ const BranchSection = styled.div<BranchSectionProps>`
     height: 100px;
     position: absolute;
     background-color: yellow;
-    top: 30%;
-    left: 60%;
+    top: 5rem;
+    left: 25rem;
     border-radius: 50%;
     z-index: -1;
   }
