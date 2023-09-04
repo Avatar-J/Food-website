@@ -26,14 +26,19 @@ export default function Navbar() {
 
         <div className="nav-menu">
           <Link to="/">Home</Link>
+
           <Link to="/Services">Services</Link>
 
           <div className="branches">
             <Link to="/Menu">Menu</Link>
           </div>
 
-          <div className="branches">
-            <Link to="/Booking">Booking</Link>
+          <div className="Booking">
+            <Link to="/Booking">Reservation</Link>
+          </div>
+
+          <div className="Cart">
+            <Link to="/Cart">Cart</Link>
           </div>
 
           <Link to="/Aboutus">AboutUs</Link>

@@ -47,6 +47,22 @@ const Booking = () => {
         {/* <DatePicker /> */}
 
         <div>
+          <FormElement style={{}}>
+            <label>Date</label>
+            <Dropdown
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 1)",
+                opacity: "1",
+              }}
+            >
+              <DropdownBtn onClick={datePickerHandler}>
+                <div>Pick Date</div>
+                <MdOutlineArrowDropDown />
+              </DropdownBtn>
+              {showDatePicker ? <DatePicker /> : null}
+            </Dropdown>
+          </FormElement>
+
           {formLabel.map((item, index) => {
             return (
               <>
@@ -91,16 +107,6 @@ const Booking = () => {
               </>
             );
           })}
-          <FormElement style={{}}>
-            <label>Date</label>
-            <Dropdown>
-              <DropdownBtn onClick={datePickerHandler}>
-                <div>Pick Date</div>
-                <MdOutlineArrowDropDown />
-              </DropdownBtn>
-              {showDatePicker ? <DatePicker /> : null}
-            </Dropdown>
-          </FormElement>
         </div>
       </SectionContainer>
     </>
