@@ -15,6 +15,7 @@ import Services from "./Pages/Services/Services";
 import Menu from "./Pages/Menu/Menu";
 import Booking from "./Pages/Booking/Booking";
 import { Content } from "./Components/GeneralStyling";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   const router1 = createBrowserRouter(
@@ -42,6 +43,7 @@ const Root = () => {
       <Content>
         <Outlet />
       </Content>
+      <Footer />
     </>
   );
 };

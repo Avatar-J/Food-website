@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { SectionHeader, ImageAdjust } from "../../Components/GeneralStyling";
 import { branchDetails } from "../../Data";
 import styled from "styled-components";
+import { Button } from "../../Components/GeneralStyling";
+import Reviews from "./Reviews";
 
 function Branches() {
   const [currentImg, setCurrentImg] = useState(0);
@@ -19,13 +21,19 @@ function Branches() {
     <>
       <SectionHeader>Branches</SectionHeader>
 
-      {branchDetails.map((item) => {
+      {branchDetails.map((item, index) => {
         return (
           <>
             <BranchSection isReverse={item.position}>
               <div className="branch-description">
                 <SectionHeader>{item.name}</SectionHeader>
                 <p>{item.paragraph}</p>
+                <div
+                  style={{ display: "flex", justifyContent: "space-evenly" }}
+                >
+                  <Button>Order Now</Button>
+                  <Button>Book Now</Button>
+                </div>
               </div>
 
               <div className="img-container">
@@ -50,6 +58,7 @@ function Branches() {
                 })} */}
               </div>
             </BranchSection>
+            <Reviews />
           </>
         );
       })}
@@ -71,7 +80,7 @@ const BranchSection = styled.div<BranchSectionProps>`
   flex-direction: ${(props) => (props.isReverse ? "row-reverse" : "row")};
 
   &.img-container {
-    width: 50%;
+    width: 60%;
     height: 100%;
     /* background-color: rgba(0, 0, 0, 0.5); */
     display: grid;
@@ -88,7 +97,7 @@ const BranchSection = styled.div<BranchSectionProps>`
   }
 
   & .branch-description {
-    width: 50%;
+    width: 40%;
     padding: 30px;
     display: grid;
     place-content: center;
@@ -102,8 +111,8 @@ const BranchSection = styled.div<BranchSectionProps>`
     height: 100px;
     position: absolute;
     background-color: yellow;
-    top: 30%;
-    left: 60%;
+    top: 5rem;
+    left: 25rem;
     border-radius: 50%;
     z-index: -1;
   }
