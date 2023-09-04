@@ -5,10 +5,10 @@ import {
   SectionContainer,
   SectionHeader,
   CardSectionWrapper,
-  CurvedCard,
   Text,
 } from "../../Components/GeneralStyling";
 import styled from "styled-components";
+import NewsletterSub from "./NewsletterSub";
 
 const TextCard = styled.div`
   width: 350px;
@@ -98,6 +98,7 @@ function AboutUs() {
           </TextCard>
         </CardSectionWrapper>
       </SectionContainer>
+      <NewsletterSub />
     </>
   );
 }
