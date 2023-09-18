@@ -3,7 +3,7 @@ import { dishes } from "./Dishes";
 import "./Populardishes.css";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { SectionHeader } from "../../../Components/GeneralStyling";
+import { SectionHeader, Button } from "../../../Components/GeneralStyling";
 
 function PopularDishes() {
   const carouselRef = useRef<HTMLDivElement>(null);

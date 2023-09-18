@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import NavbarContextProvider from "./Context/NavbarContext";
+import MenuContextProvider from "./Context/MenuContext";
 
 // const router = createBrowserRouter([
 //   {
@@ -24,7 +25,9 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <NavbarContextProvider>
-    <App />
-  </NavbarContextProvider>
+  <MenuContextProvider>
+    <NavbarContextProvider>
+      <App />
+    </NavbarContextProvider>
+  </MenuContextProvider>
 );

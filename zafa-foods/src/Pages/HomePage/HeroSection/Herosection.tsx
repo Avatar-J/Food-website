@@ -5,7 +5,8 @@ import HerosectionImg3 from "../../../Images/hero3.jpg";
 import HerosectionImg4 from "../../../Images/hero4.jpg";
 import HerosectionImg5 from "../../../Images/hero5.jpg";
 import "./HeroSection.css";
-import { SectionHeader } from "../../../Components/GeneralStyling";
+import { SectionHeader, Button } from "../../../Components/GeneralStyling";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
@@ -21,6 +22,15 @@ export default function HeroSection() {
               food fight it out outside
             </p>
             <p>You don't need a silver fork to eat good food</p>
+
+            <div style={{}}>
+              <Link to="/Menu">
+                <Button>Order Now</Button>
+              </Link>
+              <Link to="/Booking">
+                <Button>Reserve</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

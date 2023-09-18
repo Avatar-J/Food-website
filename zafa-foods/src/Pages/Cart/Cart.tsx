@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SectionContainer,
   SectionHeader,
@@ -40,6 +40,31 @@ const dummyData = [
 ];
 
 function Cart() {
+  const [count, setCount] = useState(1);
+  const [price, setPrice] = useState(0);
+
+  const priceHandler = (Price: number) => {
+    if (price == 0) {
+      setPrice(Price);
+    }
+
+    return price;
+  };
+
+  const addHandler = (price: number) => {
+    setCount((prevState) => prevState + 1);
+
+    // setPrice(price);
+    setPrice((prevState) => prevState + price);
+  };
+
+  const subHandler = (price: number) => {
+    if (count != 1) {
+      setCount((prevState) => prevState - 1);
+
+      setPrice((prevState) => prevState - price);
+    }
+  };
   return (
     <>
       <SectionContainer>
@@ -72,20 +97,36 @@ function Cart() {
                       <td>{data.Name}</td>
 
                       <Quantity>
-                        <div>
+                        <div onClick={() => subHandler(data.Price)}>
                           <FaMinus color="green" />
                         </div>
-                        {data.Quantity}
-                        <div>
+                        {count}
+                        <div onClick={() => addHandler(data.Price)}>
                           <FaPlus color="green" />
                         </div>
                       </Quantity>
 
-                      <td>{data.Price}</td>
+                      <td>{priceHandler(data.Price)}</td>
                     </tr>
                   </>
                 );
               })}
+            </tbody>
+          </table>
+
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th>Number of Item</th>
+                <th>Total Price</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>3</td>
+                <td>500</td>
+              </tr>
             </tbody>
           </table>
         </CartWrapper>

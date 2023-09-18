@@ -154,6 +154,7 @@ export const Button = styled.button`
   background-color: rgb(84, 245, 138);
   font-size: 1rem;
   font-weight: 400;
+  margin: 20px;
 `;
 
 export const PageOverlay = styled.div`
