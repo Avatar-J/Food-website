@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   SectionContainer,
   SectionHeader,
@@ -11,37 +11,22 @@ import img1 from "../../Images/Banana Bonanza.jpg";
 import img2 from "../../Images/ChocolateBananaSmoothie.jpg";
 import img3 from "../../Images/Fried-Rice.jpg";
 import img4 from "../../Images/Jollof.jpg";
-
-const dummyData = [
-  {
-    Item: img1,
-    Name: "Banana Bonanza",
-    Quantity: 1,
-    Price: 30,
-  },
-  {
-    Item: img2,
-    Name: "Chocolate Banana Smoothie",
-    Quantity: 1,
-    Price: 30,
-  },
-  {
-    Item: img3,
-    Name: "Fried Rice",
-    Quantity: 1,
-    Price: 30,
-  },
-  {
-    Item: img4,
-    Name: "Jollof",
-    Quantity: 1,
-    Price: 30,
-  },
-];
+import { MenuContext } from "../../Context/MenuContext";
 
 function Cart() {
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(0);
+
+  const {
+    selectedItems,
+    addToCart,
+    displayedData,
+    add,
+    setAdd,
+    totalCostOfItems,
+  } = useContext(MenuContext);
+
+  const { total, numberOfItems } = totalCostOfItems();
 
   const priceHandler = (Price: number) => {
     if (price == 0) {
@@ -82,31 +67,31 @@ function Cart() {
             </thead>
 
             <tbody>
-              {dummyData.map((data, index) => {
+              {selectedItems.map((data, index) => {
                 return (
                   <>
                     <tr>
                       <td>
                         <ImageDiv>
                           <ImageAdjust
-                            src={data.Item}
+                            src={data.img}
                             style={{ borderRadius: "50%" }}
                           />
                         </ImageDiv>
                       </td>
-                      <td>{data.Name}</td>
+                      <td>{data.name}</td>
 
                       <Quantity>
-                        <div onClick={() => subHandler(data.Price)}>
+                        <div onClick={() => subHandler(data.price)}>
                           <FaMinus color="green" />
                         </div>
                         {count}
-                        <div onClick={() => addHandler(data.Price)}>
+                        <div onClick={() => addHandler(data.price)}>
                           <FaPlus color="green" />
                         </div>
                       </Quantity>
 
-                      <td>{priceHandler(data.Price)}</td>
+                      <td>{priceHandler(data.price)}</td>
                     </tr>
                   </>
                 );
@@ -124,8 +109,8 @@ function Cart() {
 
             <tbody>
               <tr>
-                <td>3</td>
-                <td>500</td>
+                <td>{numberOfItems}</td>
+                <td>{total}</td>
               </tr>
             </tbody>
           </table>

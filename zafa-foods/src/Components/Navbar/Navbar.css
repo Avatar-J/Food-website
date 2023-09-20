@@ -51,12 +51,29 @@
   text-decoration: none;
   cursor: pointer;
   text-transform: uppercase;
-  padding: 40px;
+  /* padding: 40px; */
   color: white;
   font-weight: 400px;
 }
 .nav-menu:hover {
   color: green;
+}
+
+.nav-menu .nav-link {
+  padding: 40px;
+}
+
+.Cart {
+  display: flex;
+}
+
+.num-Of-Items {
+  margin-left: 5px;
+  padding: 5px;
+  background-color: white;
+  color: black;
+  border-radius: 40%;
+  font-weight: 700;
 }
 /* .nav-menu .branches {
   display: flex;

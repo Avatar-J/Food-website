@@ -60,7 +60,7 @@ function PopularDishes() {
           onMouseDown={MousedownHandler}
           onMouseUp={MouseupHandler}
         >
-          {dishes.map((dish) => {
+          {dishes.map((dish, index) => {
             return (
               <div className="food-img">
                 <img src={dish.image} alt={dish.name} />

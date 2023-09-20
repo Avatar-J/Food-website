@@ -12,8 +12,8 @@ import { MenuContext } from "../../Context/MenuContext";
 
 const Menu = () => {
   const {
-    selectedItems,
     addToCart,
+    removeFromCart,
     displayedData,
     setDisplayedData,
     add,
@@ -30,7 +30,7 @@ const Menu = () => {
   const addRemoveToCartHandler = (index: number) => {
     setAdd(!add);
     if (add) {
-      addToCart(index);
+      //addToCart(index);
     }
   };
 
@@ -77,9 +77,11 @@ const Menu = () => {
 
                   <div>
                     {add ? (
-                      <FButton>Added</FButton>
+                      <FButton onClick={() => removeFromCart(item, index)}>
+                        Added
+                      </FButton>
                     ) : (
-                      <FButton onClick={() => addToCart(index)}>
+                      <FButton onClick={() => addToCart(item)}>
                         Add to cart
                       </FButton>
                     )}
