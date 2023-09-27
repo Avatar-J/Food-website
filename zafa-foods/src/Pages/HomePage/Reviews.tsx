@@ -24,7 +24,9 @@ function Reviews() {
                     <FaQuoteLeft />
                   </Quotation>
 
-                  <h3>{review.name}</h3>
+                  <h3 style={{ color: "rgba(10, 167, 23, 1)" }}>
+                    {review.name}
+                  </h3>
                   <Text>{review.msg}</Text>
 
                   <Quotation style={{ right: "0", bottom: "0" }}>
@@ -43,8 +45,9 @@ function Reviews() {
 const ReviewWrapper = styled.div`
   display: flex;
   overflow: hidden;
-  color: #2a7c3c;
+  color: black;
   padding: 20px;
+  justify-content: space-between;
 `;
 
 const Review = styled.div`

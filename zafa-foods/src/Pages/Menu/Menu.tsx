@@ -9,6 +9,7 @@ import {
 } from "../../Components/GeneralStyling.js";
 import styled from "styled-components";
 import { MenuContext } from "../../Context/MenuContext";
+import { NavbarContext } from "../../Context/NavbarContext";
 
 const Menu = () => {
   const {
@@ -20,23 +21,15 @@ const Menu = () => {
     setAdd,
   } = useContext(MenuContext);
 
-  // const [displayedData, setDisplayedData] = useState(2);
-  // const [add, setAdd] = useState(false);
+  const { navmenu, setNavmenu, shownavmenu } = useContext(NavbarContext);
 
   const MenuChangeHandler = (index: number) => {
     setDisplayedData(index);
   };
 
-  const addRemoveToCartHandler = (index: number) => {
-    setAdd(!add);
-    if (add) {
-      //addToCart(index);
-    }
-  };
-
-  // useEffect(() => {
-  //   console.log(selectedItems);
-  // }, []);
+  useEffect(() => {
+    shownavmenu();
+  }, []);
 
   return (
     <div className="Menu-container">
@@ -44,9 +37,7 @@ const Menu = () => {
         Menu List - <span>All dishes are Halal</span>
       </SectionHeader>
 
-      <CardSectionWrapper
-        style={{ gridTemplateColumns: "auto auto auto auto auto" }}
-      >
+      <MenuWrapper>
         {menulist.map((item, index) => {
           return (
             <>
@@ -56,7 +47,7 @@ const Menu = () => {
             </>
           );
         })}
-      </CardSectionWrapper>
+      </MenuWrapper>
 
       <SectionHeader>{menulist[displayedData].Category}</SectionHeader>
 
@@ -76,12 +67,12 @@ const Menu = () => {
                   <div className="menu-ingredient">{item.ingredients}</div>
 
                   <div>
-                    {add ? (
+                    {add[index] ? (
                       <FButton onClick={() => removeFromCart(item, index)}>
                         Added
                       </FButton>
                     ) : (
-                      <FButton onClick={() => addToCart(item)}>
+                      <FButton onClick={() => addToCart(item, index)}>
                         Add to cart
                       </FButton>
                     )}
@@ -106,6 +97,19 @@ const FButton = styled.button`
   font-size: 1rem;
   font-weight: 400;
   margin: 10px;
+`;
+
+const MenuWrapper = styled.div`
+  height: auto;
+  display: grid;
+  place-content: center;
+  grid-template-columns: auto auto auto auto auto;
+  column-gap: 25px;
+  row-gap: 50px;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: auto auto;
+  }
 `;
 
 export default Menu;

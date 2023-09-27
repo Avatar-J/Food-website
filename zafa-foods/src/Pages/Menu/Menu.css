@@ -11,6 +11,12 @@
   gap: 50px;
   grid-template-columns: auto auto;
 }
+@media only screen and (max-width: 768px) {
+  .Menu-wrapper {
+    grid-template-columns: auto;
+  }
+}
+
 .Menu-item {
   display: flex;
   flex-direction: row;

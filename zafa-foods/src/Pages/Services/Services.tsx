@@ -13,6 +13,22 @@ import {
 import { services } from "./servicesData";
 import Modals from "../../Components/Modals";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const ServicesWrapper = styled.div`
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-content: center;
+  grid-template-columns: auto auto auto;
+  column-gap: 25px;
+  row-gap: 50px;
+  column-gap: 40px;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: auto;
+  }
+`;
 
 function Services() {
   const [readMore, setReadMore] = useState(false);
@@ -40,9 +56,7 @@ function Services() {
           cuisine and a memorable time.
         </Text>
 
-        <CardSectionWrapper
-          style={{ gridTemplateColumns: "auto auto auto", columnGap: "40px" }}
-        >
+        <ServicesWrapper>
           {services.map((item) => {
             return (
               <>
@@ -85,7 +99,7 @@ function Services() {
               </>
             );
           })}
-        </CardSectionWrapper>
+        </ServicesWrapper>
       </SectionContainer>
     </>
   );

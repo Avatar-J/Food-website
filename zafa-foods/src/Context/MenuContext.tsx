@@ -7,28 +7,47 @@ interface MenuItem {
   price: number;
   ingredients: string;
   img: string;
+  item: number;
 }
 
 interface MenuContextType {
   selectedItems: MenuItem[];
-  addToCart: (item: MenuItem) => void;
+  addToCart: (item: MenuItem, index: number) => void;
   removeFromCart: (item1: MenuItem, item2: number) => void;
   displayedData: number;
   setDisplayedData: (data: number) => void;
-  add: boolean;
-  setAdd: (state: boolean) => void;
-  totalCostOfItems: () => { total: number; numberOfItems: number };
+  add: boolean[];
+  setAdd: (state: boolean[]) => void;
+  // totalCostOfItems: () => { total: number };
+  // totalNumberOfItems: () => { numberOfItems: number };
+  totalCostOfItems: () => void;
+  totalNumberOfItems: () => void;
+  increaseItems: (data: number) => void;
+  decreaseItems: (data: number) => void;
+  totalItems: number;
+  setTotalItems: (data: number) => void;
+  totalPrice: number;
+  setTotalPrice: (data: number) => void;
 }
 
 export const MenuContext = createContext<MenuContextType>({
   selectedItems: [],
-  addToCart: (aug1) => {},
+  addToCart: (aug1, aug2) => {},
   removeFromCart: (aug1, aug2) => {},
   displayedData: 2,
   setDisplayedData: (data) => {},
-  add: false,
+  add: [],
   setAdd: (state) => {},
-  totalCostOfItems: () => ({ total: 0, numberOfItems: 0 }),
+  // totalCostOfItems: () => ({ total: 0 }),
+  // totalNumberOfItems: () => ({ numberOfItems: 0 }),
+  totalCostOfItems: () => {},
+  totalNumberOfItems: () => {},
+  increaseItems: (data) => {},
+  decreaseItems: (data) => {},
+  totalPrice: 0,
+  setTotalPrice: () => {},
+  totalItems: 0,
+  setTotalItems: () => {},
 });
 
 type Props = {
@@ -39,30 +58,48 @@ type Props = {
 const MenuContextProvider: React.FC<Props> = ({ children }) => {
   const [selectedItems, setSelectedItems] = useState<MenuItem[]>([]);
   const [displayedData, setDisplayedData] = useState<number>(2);
-  const [add, setAdd] = useState<boolean>(false);
+  const [add, setAdd] = useState<boolean[]>(menulist.map(() => false));
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [menulistIndex, setMenuListIndex] = useState<number[]>([]);
 
-  const addToCart = (item: MenuItem) => {
+  const addToCart = (item: MenuItem, index: number) => {
+    setMenuListIndex([...menulistIndex, index]);
+
     console.log(add);
-    setAdd(true);
+    const newButtonStates = [...add];
+    newButtonStates[index] = !newButtonStates[index];
+    setAdd(newButtonStates);
+    //setAdd(true);
     console.log(add);
 
     console.log(item);
 
     console.log(selectedItems);
-    setSelectedItems([...selectedItems, item]);
+
+    const isObjectInArray = selectedItems.some((obj) => {
+      return obj === item;
+    });
+
+    if (!isObjectInArray) {
+      setSelectedItems([...selectedItems, item]);
+    }
   };
 
   const removeFromCart = (item: MenuItem, index: number) => {
     const isObjectInArray = menulist[displayedData].menu.some((obj) => {
-      return obj == item;
+      return obj === item;
     });
 
     if (isObjectInArray) {
-      setAdd(false);
+      const newButtonStates = [...add];
+      newButtonStates[index] = !newButtonStates[index];
+      setAdd(newButtonStates);
+      //setAdd(false);
       console.log(add);
 
       const itemRemoved = selectedItems.filter((obj) => {
-        return obj != item;
+        return obj !== item;
       });
       setSelectedItems(itemRemoved);
       console.log("object has been removed");
@@ -75,9 +112,46 @@ const MenuContextProvider: React.FC<Props> = ({ children }) => {
       total = selectedItems[i].price + total;
     }
 
-    const numberOfItems = selectedItems.length;
+    //const numberOfItems = selectedItems.length;
 
-    return { total, numberOfItems };
+    setTotalPrice(total);
+    //return { total };
+  };
+
+  const totalNumberOfItems = () => {
+    let numberOfItems = 0;
+    for (let i = 0; i < selectedItems.length; i++) {
+      numberOfItems = numberOfItems + selectedItems[i].item;
+    }
+    setTotalItems(numberOfItems);
+    //return { numberOfItems };
+  };
+
+  const increaseItems = (index: number) => {
+    selectedItems[index].item = selectedItems[index].item + 1;
+
+    selectedItems[index].price =
+      selectedItems[index].price +
+      menulist[displayedData].menu[menulistIndex[index]].price;
+
+    totalNumberOfItems();
+    totalCostOfItems();
+    console.log(selectedItems);
+  };
+
+  const decreaseItems = (index: number) => {
+    selectedItems[index].item = selectedItems[index].item - 1;
+
+    console.log(menulist[displayedData].menu[index].price);
+
+    selectedItems[index].price =
+      selectedItems[index].price -
+      menulist[displayedData].menu[menulistIndex[index]].price;
+
+    console.log(selectedItems[index].price);
+
+    totalNumberOfItems();
+    totalCostOfItems();
   };
 
   return (
@@ -91,6 +165,13 @@ const MenuContextProvider: React.FC<Props> = ({ children }) => {
         add,
         setAdd,
         totalCostOfItems,
+        totalNumberOfItems,
+        increaseItems,
+        decreaseItems,
+        totalPrice,
+        setTotalPrice,
+        totalItems,
+        setTotalItems,
       }}
     >
       {children}

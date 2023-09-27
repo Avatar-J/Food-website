@@ -80,7 +80,7 @@ const BranchSection = styled.div<BranchSectionProps>`
   flex-direction: ${(props) => (props.isReverse ? "row-reverse" : "row")};
 
   &.img-container {
-    width: 60%;
+    width: 50% !important;
     height: 100%;
     /* background-color: rgba(0, 0, 0, 0.5); */
     display: grid;
@@ -97,7 +97,7 @@ const BranchSection = styled.div<BranchSectionProps>`
   }
 
   & .branch-description {
-    width: 40%;
+    width: 50%;
     padding: 30px;
     display: grid;
     place-content: center;
@@ -140,18 +140,23 @@ const BranchSection = styled.div<BranchSectionProps>`
   @media only screen and (max-width: 768px) {
     width: 100%;
     height: auto;
-    grid-template-columns: auto;
+    /* grid-template-columns: auto; */
+    flex-direction: column;
 
-    & .branch-img-container {
-      width: 100%;
-      height: 300px;
-    }
     & .branch-description::after {
       content: "";
       width: 80px;
       height: 80px;
       top: 20%;
       left: 55%;
+    }
+
+    & .branch-description {
+      width: 100%;
+    }
+
+    &.img-container {
+      width: 100%;
     }
   }
 `;

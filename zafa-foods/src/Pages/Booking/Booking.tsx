@@ -133,6 +133,10 @@ const Dropdown = styled.div`
   position: relative;
   width: 300px;
   display: inline-block;
+
+  @media only screen and (max-width: 768px) {
+    width: auto;
+  }
 `;
 const OptionsContainer = styled.ul<OptionsContainerProps>`
   position: absolute;

@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
 import "./Navbar.css";
-import { pageLinks } from "./NavbarData";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { BiFoodMenu } from "react-icons/bi";
+import { AiOutlineHome } from "react-icons/ai";
+import { RiReservedLine } from "react-icons/ri";
+import { AiOutlineProfile } from "react-icons/ai";
+import { MdOutlineRoomService } from "react-icons/md";
 import { CgCloseO } from "react-icons/cg";
 import { NavbarContext } from "../../Context/NavbarContext";
 import { MenuContext } from "../../Context/MenuContext";
@@ -21,38 +25,43 @@ export default function Navbar() {
 
         <div className="Humburger">
           {navmenu ? (
-            <GiHamburgerMenu onClick={shownavmenu} />
-          ) : (
             <CgCloseO onClick={shownavmenu} />
+          ) : (
+            <GiHamburgerMenu onClick={shownavmenu} />
           )}
         </div>
 
-        <div className="nav-menu">
+        <div className={`nav-menu ${navmenu ? `active` : `inactive`}`}>
           <div className="nav-link">
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <div className="link-items">
+                <AiOutlineHome size="1.5rem" color="white" />
+                Home
+              </div>
+            </Link>
           </div>
 
           <div className="nav-link">
-            <Link to="/Services">Services</Link>
+            <Link to="/Services">
+              <div className="link-items">
+                <MdOutlineRoomService size="1.5rem" color="white" />
+                Services
+              </div>
+            </Link>
           </div>
 
           <div className="nav-link">
-            <Link to="/Menu">Menu</Link>
-          </div>
-
-          <div className="nav-link">
-            <Link to="/Booking">Reservation</Link>
+            <Link to="/Menu">
+              <div className="link-items">
+                <BiFoodMenu size="1.5rem" color="white" />
+                Menu
+              </div>
+            </Link>
           </div>
 
           <div className="nav-link Cart">
             <Link to="/Cart">
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
+              <div className="link-items">
                 <AiOutlineShoppingCart size="1.5rem" color="white" />
                 Cart
                 <div className="num-Of-Items">{selectedItems.length}</div>
@@ -61,7 +70,21 @@ export default function Navbar() {
           </div>
 
           <div className="nav-link">
-            <Link to="/Aboutus">AboutUs</Link>
+            <Link to="/Booking">
+              <div className="link-items">
+                <RiReservedLine size="1.5rem" color="white" />
+                Reservation
+              </div>
+            </Link>
+          </div>
+
+          <div className="nav-link">
+            <Link to="/Aboutus">
+              <div className="link-items">
+                <AiOutlineProfile size="1.5rem" color="white" />
+                AboutUs
+              </div>
+            </Link>
           </div>
         </div>
       </div>

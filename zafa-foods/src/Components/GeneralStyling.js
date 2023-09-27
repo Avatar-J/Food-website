@@ -39,6 +39,7 @@ export const SectionContainer = styled.div`
   height: auto;
   display: grid;
   place-content: center;
+  overflow: hidden;
 `;
 
 export const CardSectionWrapper = styled.div`
@@ -49,6 +50,10 @@ export const CardSectionWrapper = styled.div`
   grid-template-columns: auto auto auto auto;
   column-gap: 25px;
   row-gap: 50px;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: auto;
+  }
 `;
 
 export const Card = styled.div`
@@ -78,6 +83,11 @@ export const Text = styled.p`
   padding: 5px;
   align-items: center;
   flex-wrap: wrap;
+
+  @media only screen and (max-width: 768px) {
+    padding: 40px;
+    /* font-size: 15px; */
+  }
 `;
 export const CurvedCard = styled.div`
   width: 350px;
@@ -155,6 +165,11 @@ export const Button = styled.button`
   font-size: 1rem;
   font-weight: 400;
   margin: 20px;
+
+  @media only screen and (max-width: 768px) {
+    width: 150px;
+    padding: 7px;
+  }
 `;
 
 export const PageOverlay = styled.div`
@@ -163,11 +178,15 @@ export const PageOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   background-color: rgba(255, 255, 255, 0.2);
   z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+  }
 `;
 
 export const FormElement = styled.div`
@@ -183,7 +202,18 @@ export const FormElement = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+
+    & label {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+    }
+  }
 `;
+
 export const Input = styled.input`
   outline: none;
   border: none;
@@ -191,4 +221,8 @@ export const Input = styled.input`
   padding: 10px;
   width: 300px;
   border-radius: 5px;
+
+  @media only screen and (max-width: 768px) {
+    width: auto;
+  }
 `;

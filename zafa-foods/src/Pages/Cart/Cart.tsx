@@ -1,55 +1,35 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   SectionContainer,
   SectionHeader,
   ImageAdjust,
+  Button,
 } from "../../Components/GeneralStyling";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import styled from "styled-components";
-import img1 from "../../Images/Banana Bonanza.jpg";
-import img2 from "../../Images/ChocolateBananaSmoothie.jpg";
-import img3 from "../../Images/Fried-Rice.jpg";
-import img4 from "../../Images/Jollof.jpg";
+
 import { MenuContext } from "../../Context/MenuContext";
 
 function Cart() {
-  const [count, setCount] = useState(1);
-  const [price, setPrice] = useState(0);
-
   const {
     selectedItems,
-    addToCart,
-    displayedData,
     add,
     setAdd,
     totalCostOfItems,
+    totalNumberOfItems,
+    increaseItems,
+    decreaseItems,
+    totalPrice,
+    totalItems,
   } = useContext(MenuContext);
 
-  const { total, numberOfItems } = totalCostOfItems();
+  useEffect(() => {
+    // const { total } = totalCostOfItems();
+    totalCostOfItems();
+    totalNumberOfItems();
+  }, []);
 
-  const priceHandler = (Price: number) => {
-    if (price == 0) {
-      setPrice(Price);
-    }
-
-    return price;
-  };
-
-  const addHandler = (price: number) => {
-    setCount((prevState) => prevState + 1);
-
-    // setPrice(price);
-    setPrice((prevState) => prevState + price);
-  };
-
-  const subHandler = (price: number) => {
-    if (count != 1) {
-      setCount((prevState) => prevState - 1);
-
-      setPrice((prevState) => prevState - price);
-    }
-  };
   return (
     <>
       <SectionContainer>
@@ -82,16 +62,16 @@ function Cart() {
                       <td>{data.name}</td>
 
                       <Quantity>
-                        <div onClick={() => subHandler(data.price)}>
+                        <div onClick={() => decreaseItems(index)}>
                           <FaMinus color="green" />
                         </div>
-                        {count}
-                        <div onClick={() => addHandler(data.price)}>
+                        {data.item}
+                        <div onClick={() => increaseItems(index)}>
                           <FaPlus color="green" />
                         </div>
                       </Quantity>
 
-                      <td>{priceHandler(data.price)}</td>
+                      <td>{data.price}</td>
                     </tr>
                   </>
                 );
@@ -109,12 +89,16 @@ function Cart() {
 
             <tbody>
               <tr>
-                <td>{numberOfItems}</td>
-                <td>{total}</td>
+                <td>{totalItems}</td>
+                <td>{totalPrice}</td>
               </tr>
             </tbody>
           </table>
         </CartWrapper>
+
+        <div style={{ display: "grid", placeContent: "center" }}>
+          <Button>ORDER</Button>
+        </div>
       </SectionContainer>
     </>
   );
@@ -133,6 +117,15 @@ const CartWrapper = styled.div`
     text-align: center;
     border: 1px solid #ddd;
   }
+
+  @media only screen and (max-width: 768px) {
+    padding: 10px;
+
+    & th,
+    td {
+      padding: 10px 10px;
+    }
+  }
 `;
 
 const TableHeader = styled.div``;
@@ -141,6 +134,11 @@ const ImageDiv = styled.div`
   width: 100px;
   height: 100px;
   border-radius: 50% 50%;
+
+  @media only screen and (max-width: 768px) {
+    width: 90px;
+    height: 90px;
+  }
 `;
 
 const Quantity = styled.td`

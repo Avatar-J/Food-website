@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { dishes } from "./Dishes";
 import "./Populardishes.css";
-import { BsFillArrowLeftCircleFill } from "react-icons/bs";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { SectionHeader, Button } from "../../../Components/GeneralStyling";
 
 function PopularDishes() {
@@ -51,7 +51,7 @@ function PopularDishes() {
       <SectionHeader>Popular Dishes</SectionHeader>
       <div className="slider-wrapper">
         <div className="slider-arrow" onClick={scrollPrevious}>
-          <BsFillArrowLeftCircleFill />
+          <FaArrowLeft />
         </div>
         <div
           className={`food-carousel ${isdragging ? "dragging" : ""}`}
@@ -69,7 +69,7 @@ function PopularDishes() {
           })}
         </div>
         <div className="slider-arrow" onClick={scrollNext}>
-          <BsFillArrowRightCircleFill />
+          <FaArrowRight />
         </div>
       </div>
     </div>

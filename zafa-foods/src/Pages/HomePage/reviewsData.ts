@@ -12,14 +12,14 @@ export const reviewsData = [
       name: "Isaac Sam",
       msg: "Celebrated a special occasion at Zafa Food-Madina, and it was pure perfection. From the moment we arrived until we left, the staff made us feel like VIPs. The food was divine; we'll definitely be returning!",
     },
-    {
-      name: "Lorenzo David",
-      msg: "Had a fantastic time at Zafa Food, Madina! The atmosphere is trendy, the cocktails are creative, and the dishes are a burst of flavor. Perfect for a fun night out with friends.",
-    },
-    {
-      name: "Nicholina Atswei",
-      msg: "I can't say enough good things about Zafa Food. The food is consistently excellent, and the staff goes above and beyond to make you feel welcome. My favorite spot in town!",
-    },
+    // {
+    //   name: "Lorenzo David",
+    //   msg: "Had a fantastic time at Zafa Food, Madina! The atmosphere is trendy, the cocktails are creative, and the dishes are a burst of flavor. Perfect for a fun night out with friends.",
+    // },
+    // {
+    //   name: "Nicholina Atswei",
+    //   msg: "I can't say enough good things about Zafa Food. The food is consistently excellent, and the staff goes above and beyond to make you feel welcome. My favorite spot in town!",
+    // },
   ],
 
   [
@@ -35,13 +35,13 @@ export const reviewsData = [
       name: "Stephene Obeng",
       msg: "The Ridge branch is the ideal place to unwind after a long day. The laid-back atmosphere, combined with their tasty cocktails, makes it a favorite hangout spot among my friends",
     },
-    {
-      name: "Nero Novor",
-      msg: "I hosted a corporate event at the Ridge Branch, and it was a hit! The event coordinator was incredibly helpful, and our guests were impressed by the beautiful setting and delicious appetizers.",
-    },
-    {
-      name: "Chris Nutsupui",
-      msg: "The outdoor seating area is perfect for a casual dinner with the family.",
-    },
+    // {
+    //   name: "Nero Novor",
+    //   msg: "I hosted a corporate event at the Ridge Branch, and it was a hit! The event coordinator was incredibly helpful, and our guests were impressed by the beautiful setting and delicious appetizers.",
+    // },
+    // {
+    //   name: "Chris Nutsupui",
+    //   msg: "The outdoor seating area is perfect for a casual dinner with the family.",
+    // },
   ],
 ];

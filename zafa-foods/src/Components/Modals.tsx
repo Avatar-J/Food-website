@@ -9,6 +9,16 @@ const ModalContainer = styled.div`
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
+
+  @media only screen and (max-width: 768px) {
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Content = styled.div`
