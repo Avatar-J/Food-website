@@ -4,13 +4,19 @@ import {
   SectionContainer,
   Input,
   FormElement,
+  Button,
+  Center,
+  Text,
 } from "../../Components/GeneralStyling";
 import { formLabel } from "./formLabel";
 import { styled } from "styled-components";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import DatePicker from "../../Components/DatePicker";
+import image from "../../Images/restaurant.png";
+import Modals from "../../Components/Modals";
 
 const Booking = () => {
+  const [showModal, setShowModal] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<boolean[]>(
     formLabel.map(() => false)
   );
@@ -39,76 +45,94 @@ const Booking = () => {
   const datePickerHandler = () => {
     setShowDatePicker(!showDatePicker);
   };
+
+  const closeModalHandler = () => {
+    setShowModal(!showModal);
+  };
   return (
     <>
-      <SectionContainer>
-        <SectionHeader>Book for an event</SectionHeader>
+      {showModal && (
+        <Modals closeModal={closeModalHandler}>
+          <Text>
+            We have received you message. Please check your email for more
+            information. Thank you
+          </Text>
+        </Modals>
+      )}
+      <Backgrnd>
+        <SectionContainer>
+          <SectionHeader>Book for an event</SectionHeader>
 
-        {/* <DatePicker /> */}
+          {/* <DatePicker /> */}
 
-        <div>
-          <FormElement style={{}}>
-            <label>Date</label>
-            <Dropdown
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 1)",
-                opacity: "1",
-              }}
-            >
-              <DropdownBtn onClick={datePickerHandler}>
-                <div>Pick Date</div>
-                <MdOutlineArrowDropDown />
-              </DropdownBtn>
-              {showDatePicker ? <DatePicker /> : null}
-            </Dropdown>
-          </FormElement>
+          <FormDisplay>
+            {/* <FormElement style={{}}>
+              <label>Date</label>
+              <Dropdown
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 1)",
+                  opacity: "1",
+                }}
+              >
+                <DropdownBtn onClick={datePickerHandler}>
+                  <div>Pick Date</div>
+                  <MdOutlineArrowDropDown />
+                </DropdownBtn>
+                {showDatePicker ? <DatePicker /> : null}
+              </Dropdown>
+            </FormElement> */}
 
-          {formLabel.map((item, index) => {
-            return (
-              <>
-                {item.options ? (
-                  <>
-                    <FormElement key={index}>
-                      <label>{item.label}</label>
+            {formLabel.map((item, index) => {
+              return (
+                <>
+                  {item.options ? (
+                    <>
+                      <FormElement key={index}>
+                        <label>{item.label}</label>
 
-                      <Dropdown>
-                        <DropdownBtn onClick={() => dropDownHandler(index)}>
-                          <div>{selectedOption[index]}</div>
-                          <MdOutlineArrowDropDown />
-                        </DropdownBtn>
+                        <Dropdown>
+                          <DropdownBtn onClick={() => dropDownHandler(index)}>
+                            <div>{selectedOption[index]}</div>
+                            <MdOutlineArrowDropDown />
+                          </DropdownBtn>
 
-                        <OptionsContainer isOpen={openDropdown[index]}>
-                          {item.options.map((option, index) => {
-                            return (
-                              <>
-                                <Option
-                                  key={index}
-                                  onClick={() =>
-                                    optionPickHandler(option.option, index)
-                                  }
-                                >
-                                  {option.option}
-                                </Option>
-                              </>
-                            );
-                          })}
-                        </OptionsContainer>
-                      </Dropdown>
-                    </FormElement>
-                  </>
-                ) : (
-                  <>
-                    <FormElement>
-                      <label>{item.label}</label>
-                      <Input type={item.type} />
-                    </FormElement>
-                  </>
-                )}
-              </>
-            );
-          })}
-        </div>
-      </SectionContainer>
+                          <OptionsContainer isOpen={openDropdown[index]}>
+                            {item.options.map((option, index) => {
+                              return (
+                                <>
+                                  <Option
+                                    key={index}
+                                    onClick={() =>
+                                      optionPickHandler(option.option, index)
+                                    }
+                                  >
+                                    {option.option}
+                                  </Option>
+                                </>
+                              );
+                            })}
+                          </OptionsContainer>
+                        </Dropdown>
+                      </FormElement>
+                    </>
+                  ) : (
+                    <>
+                      <FormElement>
+                        <label>{item.label}</label>
+                        <Input type={item.type} />
+                      </FormElement>
+                    </>
+                  )}
+                </>
+              );
+            })}
+          </FormDisplay>
+
+          <Center>
+            <Button onClick={closeModalHandler}>Reserve</Button>
+          </Center>
+        </SectionContainer>
+      </Backgrnd>
     </>
   );
 };
@@ -116,7 +140,19 @@ const Booking = () => {
 interface OptionsContainerProps {
   isOpen: boolean;
 }
+const Backgrnd = styled.div`
+  background-image: url("../../Images/restaurant.png");
+`;
+const FormDisplay = styled.div`
+  display: grid;
+  column-gap: 40px;
+  grid-template-columns: auto auto;
 
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
 const DropdownBtn = styled.div`
   border: 1px solid black;
   padding: 10px;

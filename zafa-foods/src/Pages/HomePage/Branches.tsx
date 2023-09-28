@@ -58,7 +58,7 @@ function Branches() {
                 })} */}
               </div>
             </BranchSection>
-            <Reviews />
+            {/* <Reviews /> */}
           </>
         );
       })}

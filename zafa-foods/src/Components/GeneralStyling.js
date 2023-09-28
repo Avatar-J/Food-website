@@ -42,6 +42,12 @@ export const SectionContainer = styled.div`
   overflow: hidden;
 `;
 
+export const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const CardSectionWrapper = styled.div`
   width: 100%;
   height: auto;
@@ -147,9 +153,9 @@ export const CardOverlay = styled.div`
 `;
 
 export const MenuButton = styled.button`
-  width: 150px;
-  height: 50px;
-  padding: 10px;
+  width: 120px;
+  height: 40px;
+  padding: 5px 10px;
   border-radius: 7px;
   border: none;
   background-color: rgb(84, 245, 138);
@@ -190,7 +196,7 @@ export const PageOverlay = styled.div`
 `;
 
 export const FormElement = styled.div`
-  margin: 40px;
+  margin: 20px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -201,6 +207,7 @@ export const FormElement = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    color: rgba(10, 167, 23, 1);
   }
 
   @media only screen and (max-width: 768px) {

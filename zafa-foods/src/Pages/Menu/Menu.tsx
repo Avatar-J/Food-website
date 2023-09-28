@@ -92,11 +92,17 @@ const Menu = () => {
 const FButton = styled.button`
   width: 100px;
   padding: 7px;
-  border: none;
-  background-color: rgb(84, 245, 138);
+  border: 1px solid rgb(84, 245, 138);
+  background-color: white;
   font-size: 1rem;
   font-weight: 400;
+  color: rgb(73, 206, 117);
   margin: 10px;
+
+  &:hover {
+    background-color: rgb(84, 245, 138);
+    color: black;
+  }
 `;
 
 const MenuWrapper = styled.div`

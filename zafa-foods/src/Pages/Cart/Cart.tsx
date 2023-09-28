@@ -4,14 +4,20 @@ import {
   SectionHeader,
   ImageAdjust,
   Button,
+  Text,
+  FormElement,
+  Input,
+  Center,
 } from "../../Components/GeneralStyling";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import styled from "styled-components";
-
+import Modals from "../../Components/Modals";
 import { MenuContext } from "../../Context/MenuContext";
 
 function Cart() {
+  const [showModal, setShowModal] = useState(false);
+
   const {
     selectedItems,
     add,
@@ -24,6 +30,10 @@ function Cart() {
     totalItems,
   } = useContext(MenuContext);
 
+  const closeModalHandler = () => {
+    setShowModal(!showModal);
+  };
+
   useEffect(() => {
     // const { total } = totalCostOfItems();
     totalCostOfItems();
@@ -32,6 +42,18 @@ function Cart() {
 
   return (
     <>
+      {showModal && (
+        <Modals closeModal={closeModalHandler}>
+          <Center style={{ flexDirection: "column" }}>
+            <Text>You will receive a mobile money prompt to make payment</Text>
+            <FormElement>
+              <label>Phone Number</label>
+              <Input type="number" />
+            </FormElement>
+            <Button onClick={closeModalHandler}>Done</Button>
+          </Center>
+        </Modals>
+      )}
       <SectionContainer>
         <SectionHeader>Cart Items</SectionHeader>
 
@@ -97,7 +119,7 @@ function Cart() {
         </CartWrapper>
 
         <div style={{ display: "grid", placeContent: "center" }}>
-          <Button>ORDER</Button>
+          <Button onClick={closeModalHandler}>ORDER</Button>
         </div>
       </SectionContainer>
     </>
@@ -119,11 +141,11 @@ const CartWrapper = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 10px;
+    padding: 5px;
 
     & th,
     td {
-      padding: 10px 10px;
+      padding: 10px 2px;
     }
   }
 `;
