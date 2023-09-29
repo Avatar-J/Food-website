@@ -4,12 +4,23 @@ import { menulist } from "./Menulist";
 import {
   SectionHeader,
   MenuButton,
-  CardSectionWrapper,
   Button,
+  Center,
+  Input,
+  Text,
 } from "../../Components/GeneralStyling.js";
 import styled from "styled-components";
 import { MenuContext } from "../../Context/MenuContext";
 import { NavbarContext } from "../../Context/NavbarContext";
+import { SideContainer } from "../../Components/SideContainer";
+
+interface Dish {
+  name: string;
+  price: number;
+  ingredients: string;
+  img: string;
+  item: number;
+}
 
 const Menu = () => {
   const {
@@ -22,9 +33,21 @@ const Menu = () => {
   } = useContext(MenuContext);
 
   const { navmenu, setNavmenu, shownavmenu } = useContext(NavbarContext);
-
+  const [singleOrder, setSingleOrder] = useState<Dish>();
+  const [showOrder, setShowOrder] = useState(false);
   const MenuChangeHandler = (index: number) => {
     setDisplayedData(index);
+  };
+
+  const singleOrderHandler = (item: Dish) => {
+    setSingleOrder(item);
+    if (singleOrder) {
+      setShowOrder(true);
+    }
+  };
+
+  const cancelOrder = () => {
+    setShowOrder(false);
   };
 
   useEffect(() => {
@@ -32,59 +55,76 @@ const Menu = () => {
   }, []);
 
   return (
-    <div className="Menu-container">
-      <SectionHeader>
-        Menu List - <span>All dishes are Halal</span>
-      </SectionHeader>
+    <div className="Menu-main-container">
+      <div className="Menu-container">
+        <SectionHeader>
+          Menu List - <span>All dishes are Halal</span>
+        </SectionHeader>
 
-      <MenuWrapper>
-        {menulist.map((item, index) => {
-          return (
-            <>
-              <MenuButton onClick={() => MenuChangeHandler(index)}>
-                {item.Category}
-              </MenuButton>
-            </>
-          );
-        })}
-      </MenuWrapper>
+        <MenuWrapper>
+          {menulist.map((item, index) => {
+            return (
+              <>
+                <MenuButton onClick={() => MenuChangeHandler(index)}>
+                  {item.Category}
+                </MenuButton>
+              </>
+            );
+          })}
+        </MenuWrapper>
 
-      <SectionHeader>{menulist[displayedData].Category}</SectionHeader>
+        <SectionHeader>{menulist[displayedData].Category}</SectionHeader>
 
-      <div className="Menu-wrapper">
-        {menulist[displayedData].menu.map((item, index) => {
-          return (
-            <>
-              <div className="Menu-item">
-                <div className="menu-image">
-                  <img src={item.img} alt="food-img" />
-                </div>
-                <div className="menu-details">
-                  <div className="menu-name">
-                    {item.name} ---------------
-                    <span>{item.price} cedis</span>
+        <div className="Menu-wrapper">
+          {menulist[displayedData].menu.map((item, index) => {
+            return (
+              <>
+                <div className="Menu-item">
+                  <div className="menu-image">
+                    <img src={item.img} alt="food-img" />
                   </div>
-                  <div className="menu-ingredient">{item.ingredients}</div>
+                  <div className="menu-details">
+                    <div className="menu-name">
+                      {item.name} ---------------
+                      <span>{item.price} cedis</span>
+                    </div>
+                    <div className="menu-ingredient">{item.ingredients}</div>
 
-                  <div>
-                    {add[index] ? (
-                      <FButton onClick={() => removeFromCart(item, index)}>
-                        Added
-                      </FButton>
-                    ) : (
-                      <FButton onClick={() => addToCart(item, index)}>
-                        Add to cart
-                      </FButton>
-                    )}
+                    <div>
+                      {add[index] ? (
+                        <FButton onClick={() => removeFromCart(item, index)}>
+                          Added
+                        </FButton>
+                      ) : (
+                        <FButton onClick={() => addToCart(item, index)}>
+                          Add to cart
+                        </FButton>
+                      )}
 
-                    <FButton>Order Now</FButton>
+                      <FButton onClick={() => singleOrderHandler(item)}>
+                        Order Now
+                      </FButton>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </>
-          );
-        })}
+              </>
+            );
+          })}
+        </div>
       </div>
+
+      {singleOrder && (
+        <SideContainer cancel={cancelOrder}>
+          <img src={singleOrder?.img} />
+
+          <h4>{singleOrder?.name}</h4>
+          {/* <div>{singleOrder?.ingredients}</div> */}
+          <div>
+            <span>Price:</span>
+            {singleOrder?.price} cedis
+          </div>
+        </SideContainer>
+      )}
     </div>
   );
 };

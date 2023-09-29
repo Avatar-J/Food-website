@@ -1,8 +1,11 @@
+.Menu-main-container {
+  display: flex;
+}
 .Menu-container {
   width: 100%;
   display: grid;
   place-content: center;
-  margin: 30px 0 30px 0;
+  /* z-index: -1; */
 }
 
 .Menu-wrapper {

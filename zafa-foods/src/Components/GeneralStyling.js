@@ -205,13 +205,15 @@ export const FormElement = styled.div`
   & label {
     width: 28%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     color: rgba(10, 167, 23, 1);
+    padding-right: 5px;
   }
 
   @media only screen and (max-width: 768px) {
     flex-direction: column;
+    justify-content: flex-start;
 
     & label {
       width: 100%;
