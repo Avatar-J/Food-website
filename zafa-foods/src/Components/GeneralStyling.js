@@ -185,7 +185,7 @@ export const PageOverlay = styled.div`
   top: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.7);
   z-index: 100;
   display: flex;
   justify-content: center;

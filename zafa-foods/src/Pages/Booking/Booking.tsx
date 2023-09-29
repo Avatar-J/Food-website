@@ -54,7 +54,7 @@ const Booking = () => {
       {showModal && (
         <Modals closeModal={closeModalHandler}>
           <Text>
-            We have received you message. Please check your email for more
+            We have received your message. Please check your email for more
             information. Thank you
           </Text>
         </Modals>

@@ -4,8 +4,8 @@ import { Button, PageOverlay } from "./GeneralStyling";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 const ModalContainer = styled.div`
-  width: 60%;
-  height: 60%;
+  width: 500px;
+  height: auto;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;

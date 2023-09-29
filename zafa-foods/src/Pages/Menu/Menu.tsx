@@ -113,7 +113,7 @@ const Menu = () => {
         </div>
       </div>
 
-      {singleOrder && (
+      {showOrder && (
         <SideContainer cancel={cancelOrder}>
           <img src={singleOrder?.img} />
 

@@ -35,6 +35,21 @@ const CardHeader = styled.div`
   text-align: center;
 `;
 
+const CardWrapper = styled.div`
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-content: center;
+  grid-template-columns: auto auto auto;
+  column-gap: 25px;
+  row-gap: 50px;
+  column-gap: 40px;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: auto;
+  }
+`;
+
 function AboutUs() {
   return (
     <>
@@ -65,7 +80,7 @@ function AboutUs() {
       <MeetOurChefs />
 
       <SectionContainer>
-        <CardSectionWrapper style={{ gridTemplateColumns: "auto auto auto" }}>
+        <CardWrapper>
           <TextCard>
             <CardHeader>OUR VISION</CardHeader>
             <Text>
@@ -96,7 +111,7 @@ function AboutUs() {
               flavors and connections, one plate at a time.
             </Text>
           </TextCard>
-        </CardSectionWrapper>
+        </CardWrapper>
       </SectionContainer>
       <NewsletterSub />
     </>

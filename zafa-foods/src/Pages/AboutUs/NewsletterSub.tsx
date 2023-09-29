@@ -14,7 +14,7 @@ function NewsletterSub() {
     <>
       <NewsletterContainer>
         <SectionHeader>Subscribe to our Newsletter</SectionHeader>
-        <Text>
+        <Text style={{ padding: "0px 20px" }}>
           Subscribe to our exclusive newletter and be the first to know about
           exclusive offers and deals
         </Text>
@@ -35,7 +35,7 @@ const NewsletterContainer = styled.div`
   height: auto;
   display: grid;
   place-content: center;
-  background-color: rgba(84, 245, 138, 0.7);
+  /* background-color: rgba(84, 245, 138, 0.7); */
 `;
 
 export default NewsletterSub;

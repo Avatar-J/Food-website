@@ -14,9 +14,11 @@ import { FaPlus } from "react-icons/fa";
 import styled from "styled-components";
 import Modals from "../../Components/Modals";
 import { MenuContext } from "../../Context/MenuContext";
+import { SideContainer } from "../../Components/SideContainer";
 
 function Cart() {
   const [showModal, setShowModal] = useState(false);
+  const [showOrder, setShowOrder] = useState(false);
 
   const {
     selectedItems,
@@ -30,8 +32,12 @@ function Cart() {
     totalItems,
   } = useContext(MenuContext);
 
-  const closeModalHandler = () => {
-    setShowModal(!showModal);
+  const placeOrder = () => {
+    setShowOrder(true);
+  };
+
+  const cancelOrder = () => {
+    setShowOrder(false);
   };
 
   useEffect(() => {
@@ -42,7 +48,7 @@ function Cart() {
 
   return (
     <>
-      {showModal && (
+      {/* {showModal && (
         <Modals closeModal={closeModalHandler}>
           <Center style={{ flexDirection: "column" }}>
             <Text>You will receive a mobile money prompt to make payment</Text>
@@ -53,79 +59,92 @@ function Cart() {
             <Button onClick={closeModalHandler}>Done</Button>
           </Center>
         </Modals>
-      )}
-      <SectionContainer>
-        <SectionHeader>Cart Items</SectionHeader>
+      )} */}
+      <MainCart>
+        <SectionContainer>
+          <SectionHeader>Cart Items</SectionHeader>
 
-        <CartWrapper>
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-              </tr>
-            </thead>
+          <CartWrapper>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {selectedItems.map((data, index) => {
-                return (
-                  <>
-                    <tr>
-                      <td>
-                        <ImageDiv>
-                          <ImageAdjust
-                            src={data.img}
-                            style={{ borderRadius: "50%" }}
-                          />
-                        </ImageDiv>
-                      </td>
-                      <td>{data.name}</td>
+              <tbody>
+                {selectedItems.map((data, index) => {
+                  return (
+                    <>
+                      <tr>
+                        <td>
+                          <ImageDiv>
+                            <ImageAdjust
+                              src={data.img}
+                              style={{ borderRadius: "50%" }}
+                            />
+                          </ImageDiv>
+                        </td>
+                        <td>{data.name}</td>
 
-                      <Quantity>
-                        <div onClick={() => decreaseItems(index)}>
-                          <FaMinus color="green" />
-                        </div>
-                        {data.item}
-                        <div onClick={() => increaseItems(index)}>
-                          <FaPlus color="green" />
-                        </div>
-                      </Quantity>
+                        <Quantity>
+                          <div onClick={() => decreaseItems(index)}>
+                            <FaMinus color="green" />
+                          </div>
+                          {data.item}
+                          <div onClick={() => increaseItems(index)}>
+                            <FaPlus color="green" />
+                          </div>
+                        </Quantity>
 
-                      <td>{data.price}</td>
-                    </tr>
-                  </>
-                );
-              })}
-            </tbody>
-          </table>
+                        <td>{data.price}</td>
+                      </tr>
+                    </>
+                  );
+                })}
+              </tbody>
+            </table>
 
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
-            <thead>
-              <tr>
-                <th>Number of Item</th>
-                <th>Total Price</th>
-              </tr>
-            </thead>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr>
+                  <th>Number of Item</th>
+                  <th>Total Price</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr>
-                <td>{totalItems}</td>
-                <td>{totalPrice}</td>
-              </tr>
-            </tbody>
-          </table>
-        </CartWrapper>
+              <tbody>
+                <tr>
+                  <td>{totalItems}</td>
+                  <td>{totalPrice}</td>
+                </tr>
+              </tbody>
+            </table>
+          </CartWrapper>
 
-        <div style={{ display: "grid", placeContent: "center" }}>
-          <Button onClick={closeModalHandler}>ORDER</Button>
-        </div>
-      </SectionContainer>
+          <div style={{ display: "grid", placeContent: "center" }}>
+            <Button onClick={placeOrder}>ORDER</Button>
+          </div>
+        </SectionContainer>
+
+        {showOrder && (
+          <SideContainer cancel={cancelOrder}>
+            <Text>Total</Text>
+            <div> Ghana cedis {totalPrice}</div>
+          </SideContainer>
+        )}
+      </MainCart>
     </>
   );
 }
 
+const MainCart = styled.div`
+  display: flex;
+  z-index: -1;
+`;
 const CartWrapper = styled.div`
   width: 100%;
   padding: 20px;

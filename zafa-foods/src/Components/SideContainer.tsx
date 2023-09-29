@@ -26,11 +26,6 @@ export const SideContainer: React.FC<{
   children: React.ReactNode;
   cancel: () => void;
 }> = (props) => {
-  const [singleOrder, setSingleOrder] = useState<Dish>();
-
-  const singleOrderHandler = (item: Dish) => {
-    setSingleOrder(item);
-  };
   return (
     <>
       <OrderPopUp>
@@ -70,6 +65,12 @@ const OrderPopUp = styled.div`
   height: 100vh;
   display: grid;
   place-content: center;
+  position: sticky;
+  top: 0;
+
+  right: 0;
+  background-color: white;
+
   /* background-color: #6ead83; */
   & img {
     width: 200px;
@@ -78,7 +79,13 @@ const OrderPopUp = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100vw;
-    z-index: 1;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
   }
 `;
 

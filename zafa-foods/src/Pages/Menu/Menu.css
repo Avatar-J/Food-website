@@ -1,5 +1,6 @@
 .Menu-main-container {
   display: flex;
+  z-index: -1;
 }
 .Menu-container {
   width: 100%;
